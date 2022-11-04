@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="1080px"
+            android:layout_height="400px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/toplogo2"></ImageView>
+        <TextView
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:textSize="16dp"
+            android:fontFamily="@font/suit_b"
+            android:id="@+id/sayTxt"
+            android:lineSpacingExtra="5dp"
+            android:text="다리를 움직이지 않고는 작은 도랑도 건널 수 없다  \n- 알랭 - "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:textSize="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/suit_b"
+            android:textColor="#FFFFFF"
+            android:text="로그인"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/logbutton"
+            android:id="@+id/loginScreenOpenBtn"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="70dp">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:textSize="25dp"
+            android:fontFamily="@font/suit_b"
+            android:textColor="#FB6502"
+            android:text="회원가입"
+            android:background="@drawable/button1"
+            android:id="@+id/SignScreenOpenBtn"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="70dp">
+
+        </androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F3F1"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/secondicon"
+        android:id="@+id/mainImg"
+        android:layout_centerInParent="true"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_marginBottom="20dp"
+        >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/introTxt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainImg"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/suit_b"
+        android:gravity="center_horizontal"
+        android:text="28 Days는 사소하고 의미있는 미션들을 통해 번아웃(무기력증)을 극복할수있도록 도와드리는 프로젝트입니다."
+        android:textAlignment="center"
+        android:textSize="12dp"
+        android:textStyle="bold">
+
+    </TextView>
+
+    <TextView
+        android:fontFamily="@font/suit_b"
+        android:id="@+id/startTxt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/introTxt"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="시작해볼까요?"
+        android:textColor="#070707"
+        android:textSize="20dp"
+        android:textStyle="bold">
+
+    </TextView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:fontFamily="@font/suit_b"
+        android:textColor="#FB6502"
+        android:text="번아웃 극복하기"
+        android:textStyle="bold"
+        android:textSize="23dp"
+        android:background="@drawable/button1"
+        android:layout_centerInParent="true"
+        android:id="@+id/startBtn"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/startTxt">
+
+    </androidx.appcompat.widget.AppCompatButton>
+    </RelativeLayout>
+</LinearLayout>
