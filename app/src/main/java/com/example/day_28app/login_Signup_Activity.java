@@ -9,7 +9,7 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class log_SignScreenActivity extends AppCompatActivity {
+public class login_Signup_Activity extends AppCompatActivity {
 
     Button logBtn,signBtn;
 
@@ -17,7 +17,7 @@ public class log_SignScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_sign);
+        setContentView(R.layout.login_signup);
 
         signBtn = findViewById(R.id.SignScreenOpenBtn);
         logBtn = findViewById(R.id.loginScreenOpenBtn);
@@ -25,14 +25,15 @@ public class log_SignScreenActivity extends AppCompatActivity {
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SignScreenActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Signup_Activity.class);
                 startActivity(intent);
             }
         });
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginScreenActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

@@ -7,21 +7,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+
+public class First_Activity extends AppCompatActivity {
 
     Button startBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.first_screen);
         startBtn = findViewById(R.id.startBtn);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), log_SignScreenActivity.class);
+                Intent intent = new Intent(getApplicationContext(), login_Signup_Activity.class);
                 startActivity(intent);
             }
         });
+        if (FirebaseAuth.getInstance().getCurrentUser() != null){
+            startMain1Activity();
+        }
+
+    }
+    private void startMain1Activity(){
+        Intent intent = new Intent(this,Main1_Activity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

@@ -8,7 +8,7 @@
     android:layout_marginTop="18dp"
     android:background="#FFFFFF"
     android:scaleType="centerCrop"
-    android:src="@drawable/setting_icon2"
+    android:src="@drawable/main1_icon_setting"
     android:layout_gravity="right"
     android:layout_width="80px"
     android:layout_height="80px">
@@ -18,7 +18,7 @@
         android:layout_width="1080px"
         android:layout_height="250px">
         <ImageView
-            android:src="@drawable/top_mainscreen"
+            android:src="@drawable/main1_bg_top"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -37,7 +37,7 @@
 
         <ImageView
             android:layout_marginTop="10dp"
-            android:src="@drawable/test_icon2"
+            android:src="@drawable/main1_icon_profile"
             android:layout_marginRight="50dp"
             android:layout_gravity="right"
             android:layout_width="200px"
@@ -60,7 +60,7 @@
 
                     android:id="@+id/mainBtn"
                     android:layout_gravity="center"
-                    android:background="@drawable/main_screen_button"
+                    android:background="@drawable/main_button"
                     android:layout_width="900px"
                     android:layout_height="300px">
 

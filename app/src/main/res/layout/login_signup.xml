@@ -12,7 +12,7 @@
             android:layout_width="1080px"
             android:layout_height="400px"
             android:scaleType="centerCrop"
-            android:src="@drawable/toplogo2"></ImageView>
+            android:src="@drawable/login_sign_bg_top_center"></ImageView>
         <TextView
             android:layout_marginTop="70dp"
             android:gravity="center"
@@ -33,7 +33,7 @@
             android:textColor="#FFFFFF"
             android:text="로그인"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/logbutton"
+            android:background="@drawable/button2"
             android:id="@+id/loginScreenOpenBtn"
             android:layout_gravity="center"
             android:layout_width="300dp"
