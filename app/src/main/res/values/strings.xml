@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Day_28App</string>
+    <string name="app_name">Day28</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
 </resources>

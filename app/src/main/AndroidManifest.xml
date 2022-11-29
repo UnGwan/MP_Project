@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
-    </uses-permission>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <application
         android:allowBackup="true"
@@ -48,6 +50,8 @@
         <activity android:name=".Password_Find_Activity" />
         <!-- 닉네임 설정 화면-->
         <activity android:name=".Set_Username_Activity"/>
+        <!-- 카메라 액티비티-->
+        <activity android:name=".CameraActivity"/>
     </application>
 
 </manifest>

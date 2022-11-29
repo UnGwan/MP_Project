@@ -2,7 +2,6 @@ package com.example.day_28app;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,8 +19,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -65,7 +62,7 @@ public class Main1_Activity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        setUsername();
+        setInit();
     }
 
     //fragment 전환
@@ -76,7 +73,7 @@ public class Main1_Activity extends AppCompatActivity {
 
             switch (menuItem.getItemId()) {
                 case R.id.menu_home:
-                    setUsername();
+                    setInit();
                     transaction.replace(R.id.menu_frame_layout, fragmentHome).commitAllowingStateLoss();
                     break;
                 case R.id.menu_feed:
@@ -104,7 +101,7 @@ public class Main1_Activity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
     //Main
-    private void setUsername(){
+    private void setInit(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -113,6 +110,7 @@ public class Main1_Activity extends AppCompatActivity {
             startActivity(First_Activity.class);
             finish();
         } else {
+            startActivity(CameraActivity.class);
             DocumentReference docRef = db.collection("users").document(user.getUid());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
