@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/sprout_1"
+        android:id="@+id/img1">
+    </ImageView>
+    <TextView
+        android:fontFamily="@font/suit_b"
+        android:textColor="#090909"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="새싹의 이름을 정해주시고 키워주세요!">
+
+    </TextView>
+    <EditText
+        android:id="@+id/set_username_editTxt"
+        android:layout_gravity="center"
+        android:fontFamily="@font/suit_b"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:hint="새싹의 이름을 입력하세요"
+       >
+
+    </EditText>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/set_username_btn"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/suit_b"
+        android:text="새싹 키우기"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button2">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+</LinearLayout>

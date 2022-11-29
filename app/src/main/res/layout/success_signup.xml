@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginTop="130dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/test"
+        android:id="@+id/img1">
+    </ImageView>
+    <TextView
+
+        android:fontFamily="@font/suit_b"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="28Days 회원가입을 축하드립니다!!">
+
+    </TextView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/success_signup_loginBtn"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/suit_b"
+        android:text="로그인 하러가기"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button2">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+</LinearLayout>

@@ -14,18 +14,6 @@
             android:src="@drawable/login_sign_bg_top_left">
 
         </ImageView>
-        <TextView
-            android:textSize="16dp"
-            android:fontFamily="@font/suit_b"
-            android:textColor="#FFFFFF"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center_vertical|right"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            android:text="오늘도 28-days에 와주셔서 감사합니다">
-
-        </TextView>
     </FrameLayout>
     <LinearLayout
         android:gravity="center_horizontal"
@@ -83,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/log_btn"
+                android:id="@+id/login_login_btn"
                 android:text="로그인"
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/suit_b"
@@ -94,7 +82,7 @@
 
             </androidx.appcompat.widget.AppCompatButton>
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/sign_btn"
+                android:id="@+id/login_sign_btn"
                 android:text="회원가입"
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/suit_b"
@@ -105,6 +93,7 @@
             </androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
         <TextView
+            android:id="@+id/login_forget_password_text"
             android:backgroundTintMode="add"
             android:textSize="12dp"
             android:gravity="center"

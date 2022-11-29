@@ -19,45 +19,40 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Login_Activity extends AppCompatActivity {
-    private static final String TAG = "SignUpActivity";
     private FirebaseAuth mAuth;
 
-    Button log_btn;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        findViewById(R.id.log_btn).setOnClickListener(onClickListener);
+        findViewById(R.id.login_login_btn).setOnClickListener(onClickListener);
+        findViewById(R.id.login_forget_password_text).setOnClickListener(onClickListener);
 
         mAuth = FirebaseAuth.getInstance();
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            currentUser.reload();
-        }
-    }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.log_btn:
-                    signUP();
+                case R.id.login_login_btn:
+                    login();
+                    break;
+                case R.id.login_sign_btn:
+                    startActivity(Signup_Activity.class);
+                case R.id.login_forget_password_text:
+                    startActivity(Password_Find_Activity.class);
                     break;
             }
         }
     };
 
     //로그인 메소드
-    private void signUP() {
+    private void login() {
         String email = ((EditText) findViewById(R.id.login_idEditTxt)).getText().toString();
         String password = ((EditText) findViewById(R.id.login_passwordEditTxt)).getText().toString();
         if (email.length() > 0 && password.length() > 0) {
@@ -68,8 +63,7 @@ public class Login_Activity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                startToast("로그인에 성공하셨습니다");
-                                startMain1Activity();
+                                startActivity(Main1_Activity.class);
                             } else {
                                 if (task.getException() != null) {
                                     startToast(task.getException().toString());
@@ -77,7 +71,8 @@ public class Login_Activity extends AppCompatActivity {
                             }
                         }
                     });
-        } else {
+        }
+        else {
             startToast("빈칸이 존재하면 안됩니다");
         }
     }
@@ -85,11 +80,11 @@ public class Login_Activity extends AppCompatActivity {
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-    private void startMain1Activity(){
-        Intent intent = new Intent(this, Main1_Activity.class);
-        //뒤로가기시 무한굴레 방지지
+
+
+    private void startActivity(Class c){
+        Intent intent = new Intent(this,c);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        finish();
         startActivity(intent);
     }
 }

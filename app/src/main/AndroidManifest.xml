@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET">
 
     </uses-permission>
 
     <application
-        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -16,8 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Day_28App"
-        tools:targetApi="31"
-        tools:replace="android:appComponentFactory">
+        android:usesCleartextTraffic="true"
+        tools:replace="android:appComponentFactory"
+        tools:targetApi="31">
         <activity
 
             android:name=".Main1_Activity"
@@ -32,21 +33,21 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".login_Signup_Activity">
 
-        </activity>
-        <activity android:name=".Signup_Activity">
-
-        </activity>
-        <activity android:name=".Login_Activity">
-
-        </activity>
-        <activity android:name=".First_Activity">
-
-        </activity>
-        <activity android:name=".Success_Signup_Activity">
-
-        </activity>
+        <!-- 로그인 회원가입 선택화면 -->
+        <activity android:name=".login_Signup_Activity" />
+        <!-- 회원가입 화면 -->
+        <activity android:name=".Signup_Activity" />
+        <!-- 로그인 화면-->
+        <activity android:name=".Login_Activity" />
+        <!-- 처음 소개 화면-->
+        <activity android:name=".First_Activity" />
+        <!-- 회원가입 성공시 화면-->
+        <activity android:name=".Success_Signup_Activity" />
+        <!-- 비밀번호 재설정 화면-->
+        <activity android:name=".Password_Find_Activity" />
+        <!-- 닉네임 설정 화면-->
+        <activity android:name=".Set_Username_Activity"/>
     </application>
 
 </manifest>

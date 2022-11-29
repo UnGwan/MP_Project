@@ -9,10 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+
             android:layout_width="1080px"
             android:layout_height="400px"
             android:scaleType="centerCrop"
-            android:src="@drawable/login_sign_bg_top_center"></ImageView>
+            android:src="@drawable/login_sign_bg_top_center">
+
+        </ImageView>
         <TextView
             android:layout_marginTop="70dp"
             android:gravity="center"

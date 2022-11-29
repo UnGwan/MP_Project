@@ -15,7 +15,7 @@ public class First_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.first_screen);
+        setContentView(R.layout.intro_screen);
         startBtn = findViewById(R.id.startBtn);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +29,11 @@ public class First_Activity extends AppCompatActivity {
             startMain1Activity();
         }
 
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
     }
     private void startMain1Activity(){
         Intent intent = new Intent(this,Main1_Activity.class);
