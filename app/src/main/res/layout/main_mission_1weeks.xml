@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임"
+        android:textSize="30dp"
+        android:textColor="#FF5722"
+        android:fontFamily="@font/suit_b"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:id="@+id/main_mission_username"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="매일 아침 7시에 일어나기"
+        android:layout_gravity="center"
+        android:fontFamily="@font/suit_b"
+        android:layout_marginTop="10dp"></TextView>
+
+
+    <LinearLayout
+
+        android:visibility="visible"
+        android:id="@+id/main_mission_1weeks_1day"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="75dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/color_orange">
+        </ImageView>
+        <TextView
+            android:fontFamily="@font/suit_b"
+            android:textColor="#FFC107"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="미션완료! (2022/12/05)">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="visible"
+        android:gravity="center"
+        android:id="@+id/main_mission_1weeks_2day"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ncolor_orange">
+        </ImageView>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1주 2일차 인증샷을 남겨주세요">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="invisible"
+        android:gravity="center"
+        android:id="@+id/main_mission_1weeks_3day"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ncolor_orange">
+        </ImageView>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1주 1일차 인증샷을 남겨주세요">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="invisible"
+        android:gravity="center"
+        android:id="@+id/main_mission_1weeks_4day"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ncolor_orange">
+        </ImageView>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1주 1일차 인증샷을 남겨주세요">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:visibility="invisible"
+        android:id="@+id/main_mission_1weeks_5day"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ncolor_orange">
+        </ImageView>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1주 1일차 인증샷을 남겨주세요">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:visibility="invisible"
+        android:id="@+id/main_mission_1weeks_6day"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ncolor_orange">
+        </ImageView>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1주 1일차 인증샷을 남겨주세요">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:visibility="invisible"
+        android:id="@+id/main_mission_1weeks_7day"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ncolor_orange">
+        </ImageView>
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1주 1일차 인증샷을 남겨주세요">
+        </TextView>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

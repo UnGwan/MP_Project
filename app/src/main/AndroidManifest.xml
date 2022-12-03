@@ -22,7 +22,6 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
-
             android:name=".Main1_Activity"
             android:exported="true">
             <intent-filter>
@@ -43,7 +42,7 @@
         <!-- 로그인 화면-->
         <activity android:name=".Login_Activity" />
         <!-- 처음 소개 화면-->
-        <activity android:name=".First_Activity" />
+        <activity android:name=".Intro_Activity" />
         <!-- 회원가입 성공시 화면-->
         <activity android:name=".Success_Signup_Activity" />
         <!-- 비밀번호 재설정 화면-->
@@ -51,7 +50,12 @@
         <!-- 닉네임 설정 화면-->
         <activity android:name=".Set_Username_Activity"/>
         <!-- 카메라 액티비티-->
-        <activity android:name=".CameraActivity"/>
+        <activity android:name=".CameraActivity" />
+
+        <!-- 1주차 미션화면 -->
+        <activity android:name=".Main_mission_1weeks_Activity"/>
+        <!-- 미션 인증 화면 -->
+        <activity android:name=".Complete_Mission_Page"/>
     </application>
 
 </manifest>

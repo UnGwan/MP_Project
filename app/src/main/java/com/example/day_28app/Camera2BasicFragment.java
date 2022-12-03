@@ -41,7 +41,7 @@ import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
-import android.os.Build;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -57,15 +57,24 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -92,7 +101,11 @@ public class Camera2BasicFragment extends Fragment
         ORIENTATIONS.append(Surface.ROTATION_270, 180);
     }
 
+    //카메라 전면 후면  아이디 값
     private int facingId = 0; // 0 front
+
+    //자동 포커스 체크
+    private boolean mAutoFocusSupported;
     /**
      * Tag for the {@link Log}.
      */
@@ -248,7 +261,7 @@ public class Camera2BasicFragment extends Fragment
 
         @Override
         public void onImageAvailable(ImageReader reader) {
-            mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
+            mBackgroundHandler.post(new ImageUploader(reader.acquireNextImage()));
         }
 
     };
@@ -500,6 +513,14 @@ public class Camera2BasicFragment extends Fragment
             for (String cameraId : manager.getCameraIdList()) {
                 CameraCharacteristics characteristics
                         = manager.getCameraCharacteristics(cameraId);
+                int[] afAvailableModes = characteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES);
+
+                if (afAvailableModes.length == 0 || (afAvailableModes.length == 1
+                        && afAvailableModes[0] == CameraMetadata.CONTROL_AF_MODE_OFF)) {
+                    mAutoFocusSupported = false;
+                } else {
+                    mAutoFocusSupported = true;
+                }
 
                 // We don't use a front facing camera in this sample.
                 Integer facing = characteristics.get(CameraCharacteristics.LENS_FACING);
@@ -771,7 +792,11 @@ public class Camera2BasicFragment extends Fragment
      * Initiate a still image capture.
      */
     private void takePicture() {
-        lockFocus();
+        if (mAutoFocusSupported) {
+            lockFocus();
+        } else {
+            captureStillPicture();
+        }
     }
 
     /**
@@ -840,7 +865,7 @@ public class Camera2BasicFragment extends Fragment
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session,
                                                @NonNull CaptureRequest request,
                                                @NonNull TotalCaptureResult result) {
-                    showToast("Saved: " + mFile);
+//                    showToast("Saved: " + mFile);
                     Log.d(TAG, mFile.toString());
                     unlockFocus();
                 }
@@ -920,7 +945,7 @@ public class Camera2BasicFragment extends Fragment
     /**
      * Saves a JPEG {@link Image} into the specified {@link File}.
      */
-    private static class ImageSaver implements Runnable {
+    private static class ImageUploader implements Runnable {
 
         /**
          * The JPEG image
@@ -929,11 +954,9 @@ public class Camera2BasicFragment extends Fragment
         /**
          * The file we save the image into.
          */
-        private final File mFile;
 
-        ImageSaver(Image image, File file) {
+        ImageUploader(Image image) {
             mImage = image;
-            mFile = file;
         }
 
         @Override
@@ -941,25 +964,87 @@ public class Camera2BasicFragment extends Fragment
             ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.remaining()];
             buffer.get(bytes);
-            FileOutputStream output = null;
-            try {
-                output = new FileOutputStream(mFile);
-                output.write(bytes);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                mImage.close();
-                if (null != output) {
-                    try {
-                        output.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+
+            // Create a storage reference from our app
+            StorageReference storageRef = storage.getReference();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            final StorageReference mountainImagesRef = storageRef.child("users/+"+user.getUid()+"/Photo-shot2.jpg");
+
+            UploadTask uploadTask = mountainImagesRef.putBytes(bytes);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        Log.e("실패","실패");
+                        throw task.getException();
+                    }
+
+                    // Continue with the task to get the download URL
+                    return mountainImagesRef.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        Log.e("성공","성공: "+downloadUri);
+
+                    } else {
+                        Log.e("실패","실패");
+                        // Handle failures
+                        // ...
                     }
                 }
-            }
+            });
         }
 
     }
+    /**
+     * Saves a JPEG {@link Image} into the specified {@link File}.
+     */
+//    private static class ImageSaver implements Runnable {
+//
+//        /**
+//         * The JPEG image
+//         */
+//        private final Image mImage;
+//        /**
+//         * The file we save the image into.
+//         */
+//        private final File mFile;
+//
+//        ImageSaver(Image image, File file) {
+//            mImage = image;
+//            mFile = file;
+//        }
+//
+//        @Override
+//        public void run() {
+//            ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
+//            byte[] bytes = new byte[buffer.remaining()];
+//            buffer.get(bytes);
+//            FileOutputStream output = null;
+//            try {
+//                output = new FileOutputStream(mFile);
+//                output.write(bytes);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } finally {
+//                mImage.close();
+//                if (null != output) {
+//                    try {
+//                        output.close();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
 
     /**
      * Compares two {@code Size}s based on their areas.

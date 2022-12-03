@@ -1,7 +1,6 @@
 package com.example.day_28app;
 
-import static com.example.day_28app.Main1_Activity.username;
-
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,15 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +26,6 @@ public class Main_home extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    TextView top_txt;
 
 
 
@@ -70,8 +61,6 @@ public class Main_home extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
-
     }
 
     @Override
@@ -80,11 +69,24 @@ public class Main_home extends Fragment {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_main_home, container, false);
 //        top_txt = (TextView) rootView.findViewById(R.id.main_top_text);
 //        top_txt.setText(username + "님 \n오늘도 반가워요 ");
+
+        rootView.findViewById(R.id.main_1weeks_Btn).setOnClickListener(onClickListener);
         return rootView;   // Inflate the layout for this fragment
     }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.main_1weeks_Btn:
+                    Intent intent = new Intent(getActivity(), Main_mission_1weeks_Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    break;
+            }
+        }
+    };
     //public
-
-
 
 
 }

@@ -8,7 +8,7 @@
         android:layout_gravity="center"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/test"
+        android:src="@drawable/succes_sign_up_image"
         android:id="@+id/img1">
     </ImageView>
     <TextView

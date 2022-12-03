@@ -89,7 +89,6 @@ public class Main1_Activity extends AppCompatActivity {
         }
     }
 
-
     //public
     private void startActivity(Class c) {
         Intent intent = new Intent(this, c);
@@ -97,9 +96,11 @@ public class Main1_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
     //Main
     private void setInit(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -107,10 +108,10 @@ public class Main1_Activity extends AppCompatActivity {
 
         //로그인 여부
         if (user == null) {
-            startActivity(First_Activity.class);
+            startActivity(Intro_Activity.class);
             finish();
         } else {
-            startActivity(CameraActivity.class);
+//            startActivity(CameraActivity.class);
             DocumentReference docRef = db.collection("users").document(user.getUid());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override

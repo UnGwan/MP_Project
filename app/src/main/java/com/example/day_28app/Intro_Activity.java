@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class First_Activity extends AppCompatActivity {
+public class Intro_Activity extends AppCompatActivity {
 
     Button startBtn;
     @Override
