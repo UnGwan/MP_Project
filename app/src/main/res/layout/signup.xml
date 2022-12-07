@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/signUpBtn"
+                    android:id="@+id/signUp_sign_btn"
                     android:text="가입"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/suit_b"
@@ -94,6 +94,7 @@
 
                 </androidx.appcompat.widget.AppCompatButton>
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/signUp_cancel_btn"
                     android:text="취소"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/suit_b"

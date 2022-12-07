@@ -252,19 +252,24 @@ public class Camera2BasicFragment extends Fragment
      */
     private File mFile;
 
-    /**
-     * This a callback object for the {@link ImageReader}. "onImageAvailable" will be called when a
-     * still image is ready to be saved.
-     */
-    private final ImageReader.OnImageAvailableListener mOnImageAvailableListener
-            = new ImageReader.OnImageAvailableListener() {
+//    /**
+//     * This a callback object for the {@link ImageReader}. "onImageAvailable" will be called when a
+//     * still image is ready to be saved.
+//     */
+//    private final ImageReader.OnImageAvailableListener mOnImageAvailableListener
+//            = new ImageReader.OnImageAvailableListener() {
+//
+//        @Override
+//        public void onImageAvailable(ImageReader reader) {
+//            mBackgroundHandler.post(new ImageUploader(reader.acquireNextImage()));
+//        }
+//
+//    };
+    private ImageReader.OnImageAvailableListener mOnImageAvailableListener;
+    public void setOnImageAvailableListener(ImageReader.OnImageAvailableListener mOnImageAvailableListener){
+        this.mOnImageAvailableListener = mOnImageAvailableListener;
+    }
 
-        @Override
-        public void onImageAvailable(ImageReader reader) {
-            mBackgroundHandler.post(new ImageUploader(reader.acquireNextImage()));
-        }
-
-    };
 
     /**
      * {@link CaptureRequest.Builder} for the camera preview

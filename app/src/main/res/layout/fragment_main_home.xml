@@ -16,6 +16,7 @@
         android:layout_width="80px"
         android:layout_height="80px">
 
+
     </ImageButton>
     <FrameLayout
         android:layout_width="1080px"
@@ -57,52 +58,160 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/main_1weeks_layout"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <FrameLayout
-            android:background="#FFFFFF"
-            android:layout_width="match_parent"
-            android:layout_height="400px">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="400px">
-                <ImageButton
-                    android:layout_centerInParent="true"
-                    android:id="@+id/main_1weeks_Btn"
-                    android:layout_gravity="center"
-                    android:background="@drawable/main_button"
-                    android:layout_width="900px"
-                    android:layout_height="300px">
+            <ImageButton
+                android:layout_centerInParent="true"
+                android:layout_width="900px"
+                android:layout_height="300px"
+                android:id="@+id/main_1weeks_Btn"
+                android:background="@drawable/main_button"
+                >
+            </ImageButton>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/mission1_txt"
 
-                </ImageButton>
+                android:layout_alignBottom="@id/main_1weeks_Btn"
+                android:layout_alignLeft="@id/main_1weeks_Btn"
+                android:layout_alignRight="@id/main_1weeks_Btn"
+                android:layout_alignTop="@id/main_1weeks_Btn"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="30dp"
+
+                android:textSize="20dp"
+
+                >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignBottom="@id/mission1_txt"
+                android:layout_alignLeft="@id/mission1_txt"
+                android:layout_alignRight="@+id/mission1_txt"
+
+                android:layout_marginBottom="18dp"
+                android:layout_marginTop="30dp"
+
+
+                android:textSize="10dp"
+                android:hint="어떤 명언을 할까요"
+                >
+            </TextView>
+
+            <ProgressBar
+                android:id="@+id/progressbar1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+
+
+                android:layout_alignLeft="@id/main_1weeks_Btn"
+
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+
+                android:progress="10"
+
+
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:indeterminate="false"
+                android:max="70"
+                android:progressBackgroundTint="#FBE7C6"
+                android:progressDrawable="@drawable/circle_progressbar"
+                android:progressTint="#FB6502" />
+
+            <TextView
+                android:id="@+id/progress_1weeks_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignBottom="@id/progressbar1"
+                android:layout_alignLeft="@id/progressbar1"
+                android:layout_alignRight="@id/progressbar1"
+                android:layout_alignTop="@id/progressbar1"
+                android:gravity="center"
+
+                android:fontFamily="@font/suit_b"
+                android:textSize="15dp"
+                android:text="1" />
+        </RelativeLayout>
+            <!-- 2주차 -->
+            <RelativeLayout
+                android:visibility="invisible"
+                android:id="@+id/main_2weeks_layout"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/main_2weeks_Btn"
+                    android:layout_width="900px"
+                    android:layout_height="300px"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/main_button"></ImageButton>
                 <TextView
-                    android:textSize="20dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginLeft="100dp"
-                    android:text="정운관 바보"
+                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:id="@+id/mission2_txt"
+
+                    android:layout_alignBottom="@id/main_2weeks_Btn"
+                    android:layout_alignLeft="@id/main_2weeks_Btn"
+                    android:layout_alignRight="@id/main_2weeks_Btn"
+                    android:layout_alignTop="@id/main_2weeks_Btn"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="30dp"
+
+                    android:textSize="20dp"
+                    >
                 </TextView>
 
                 <TextView
-                    android:textSize="10dp"
-                    android:layout_marginLeft="103dp"
-                    android:layout_marginTop="80dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="본인의 다짐 한마디">
+
+                    android:layout_alignBottom="@id/mission2_txt"
+                    android:layout_alignLeft="@id/mission2_txt"
+                    android:layout_alignRight="@+id/mission2_txt"
+
+                    android:layout_marginBottom="18dp"
+
+
+                    android:textSize="10dp"
+                    android:text="어떤 명언을 할까요"
+                    >
                 </TextView>
 
                 <ProgressBar
-                    android:progress="10"
-                    android:layout_marginTop="55dp"
-                    android:layout_marginLeft="50dp"
-                    android:id="@+id/progressbar1"
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:id="@+id/progressbar2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+
+
+                    android:layout_alignLeft="@id/main_2weeks_Btn"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_gravity="center"
+
+                    android:progress="10"
+
+
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"
                     android:max="70"
                     android:progressBackgroundTint="#FBE7C6"
@@ -110,30 +219,198 @@
                     android:progressTint="#FB6502" />
 
                 <TextView
-                    android:textColor="#FB6502"
-                    android:layout_marginLeft="330dp"
-                    android:layout_marginTop="45dp"
+                    android:id="@+id/progress_2weeks_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=">"
-                    android:textSize="40dp"
+
+                    android:layout_alignBottom="@id/progressbar2"
+                    android:layout_alignLeft="@id/progressbar2"
+                    android:layout_alignRight="@id/progressbar2"
+                    android:layout_alignTop="@id/progressbar2"
+                    android:gravity="center"
+
+                    android:fontFamily="@font/suit_b"
+                    android:textSize="15dp"
+                    android:text="1" />
+            </RelativeLayout>
+
+            <!-- 3주차 -->
+            <RelativeLayout
+                android:visibility="invisible"
+                android:id="@+id/main_3weeks_layout"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageButton
+                    android:layout_centerInParent="true"
+                    android:layout_width="900px"
+                    android:layout_height="300px"
+                    android:id="@+id/main_3weeks_Btn"
+                    android:background="@drawable/main_button"
+                    >
+                </ImageButton>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/mission3_txt"
+
+                    android:layout_alignBottom="@id/main_3weeks_Btn"
+                    android:layout_alignLeft="@id/main_3weeks_Btn"
+                    android:layout_alignRight="@id/main_3weeks_Btn"
+                    android:layout_alignTop="@id/main_3weeks_Btn"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="30dp"
+
+                    android:textSize="20dp"
                     >
                 </TextView>
 
                 <TextView
-                    android:fontFamily="@font/suit_b"
-                    android:id="@+id/progress_1weeks_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="66dp"
-                    android:layout_marginLeft="66dp"
+
+                    android:layout_alignBottom="@id/mission3_txt"
+                    android:layout_alignLeft="@id/mission3_txt"
+                    android:layout_alignRight="@+id/mission3_txt"
+
+                    android:layout_marginBottom="18dp"
+
+
+                    android:textSize="10dp"
+                    android:text="어떤 명언을 할까요"
+                    >
+                </TextView>
+
+                <ProgressBar
+                    android:id="@+id/progressbar3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+
+                    android:layout_alignLeft="@id/main_3weeks_Btn"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center"
+
+                    android:progress="10"
+
+
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"
+                    android:max="70"
+                    android:progressBackgroundTint="#FBE7C6"
+                    android:progressDrawable="@drawable/circle_progressbar"
+                    android:progressTint="#FB6502" />
+
+                <TextView
+                    android:id="@+id/progress_3weeks_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignBottom="@id/progressbar3"
+                    android:layout_alignLeft="@id/progressbar3"
+                    android:layout_alignRight="@id/progressbar3"
+                    android:layout_alignTop="@id/progressbar3"
+                    android:gravity="center"
+
+                    android:fontFamily="@font/suit_b"
                     android:textSize="15dp"
                     android:text="1" />
             </RelativeLayout>
-        </FrameLayout>
 
+            <!-- 4주차 -->
+            <RelativeLayout
+                android:visibility="invisible"
+                android:id="@+id/main_4weeks_layout"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageButton
+                    android:layout_centerInParent="true"
+                    android:layout_width="900px"
+                    android:layout_height="300px"
+                    android:id="@+id/main_4weeks_Btn"
+                    android:background="@drawable/main_button"
+                    >
+                </ImageButton>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/mission4_txt"
+
+                    android:layout_alignBottom="@id/main_4weeks_Btn"
+                    android:layout_alignLeft="@id/main_4weeks_Btn"
+                    android:layout_alignRight="@id/main_4weeks_Btn"
+                    android:layout_alignTop="@id/main_4weeks_Btn"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="30dp"
+
+                    android:textSize="20dp"
+                    >
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignBottom="@id/mission4_txt"
+                    android:layout_alignLeft="@id/mission4_txt"
+                    android:layout_alignRight="@+id/mission4_txt"
+
+                    android:layout_marginBottom="18dp"
+
+
+                    android:textSize="10dp"
+                    android:text="어떤 명언을 할까요"
+                    >
+                </TextView>
+
+                <ProgressBar
+                    android:id="@+id/progressbar4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+
+                    android:layout_alignLeft="@id/main_4weeks_Btn"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center"
+
+                    android:progress="10"
+
+
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"
+                    android:max="70"
+                    android:progressBackgroundTint="#FBE7C6"
+                    android:progressDrawable="@drawable/circle_progressbar"
+                    android:progressTint="#FB6502" />
+
+                <TextView
+                    android:id="@+id/progress_4weeks_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignBottom="@id/progressbar4"
+                    android:layout_alignLeft="@id/progressbar4"
+                    android:layout_alignRight="@id/progressbar4"
+                    android:layout_alignTop="@id/progressbar4"
+                    android:gravity="center"
+
+                    android:fontFamily="@font/suit_b"
+                    android:textSize="15dp"
+                    android:text="1" />
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
+
+
 
 
 </LinearLayout>

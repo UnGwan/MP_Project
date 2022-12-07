@@ -11,8 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <ImageView
-            android:layout_marginTop="50dp"
             android:id="@+id/img1"
             android:layout_width="750px"
             android:layout_height="700px"
@@ -20,6 +22,8 @@
             android:src="@drawable/photo_shot_basic">
 
         </ImageView>
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
@@ -54,22 +58,38 @@
             android:padding="30dp"
             android:layout_width="match_parent"
             android:layout_height="0dp">
-            <EditText
-                android:gravity="center"
-                android:fontFamily="@font/suit_b"
-                android:textColorHint="#050505"
-                android:hint="오늘의 일기를 작성해주세요"
-                android:background="@drawable/edge1"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/mission_diary_edt"
+                    android:gravity="center"
+                    android:fontFamily="@font/suit_b"
+                    android:textColorHint="#050505"
+                    android:background="@drawable/edge1"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
 
-            </EditText>
+                </EditText>
+                <TextView
+                    android:textSize="20dp"
+                    android:visibility="invisible"
+                    android:id="@+id/mission_diary_txt"
+                    android:gravity="center"
+                    android:fontFamily="@font/suit_b"
+                    android:textColor="#050505"
+                    android:background="@drawable/edge1"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+                </TextView>
+            </FrameLayout>
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/mission_complete_btn"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/suit_b"
                     android:text="완료하기"

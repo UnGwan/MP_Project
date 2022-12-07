@@ -1,7 +1,7 @@
 package com.example.day_28app;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -12,21 +12,26 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Signup_Activity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        findViewById(R.id.signUpBtn).setOnClickListener(onClickListener);
+        findViewById(R.id.signUp_sign_btn).setOnClickListener(onClickListener);
+        findViewById(R.id.signUp_cancel_btn).setOnClickListener(onClickListener);
+
     }
     @Override
     public void onStart() {
@@ -42,8 +47,11 @@ public class Signup_Activity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()){
-                case R.id.signUpBtn:
+                case R.id.signUp_sign_btn:
                     signUP();
+                    break;
+                case R.id.signUp_cancel_btn:
+                    finish();
                     break;
             }
         }
@@ -64,6 +72,7 @@ public class Signup_Activity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    setDB();
                                     startActivity(Success_Signup_Activity.class);
                                     // 성공 로직
                                 } else {
@@ -78,6 +87,58 @@ public class Signup_Activity extends AppCompatActivity {
             }
         } else {
             startToast("빈칸이 존재하면 안됩니다");
+        }
+    }
+
+    // 회원가입 성공시 데이터베이스 컬렉션 생성.
+    private void setDB(){
+
+
+        String defaultDiary = "오늘의 일기를 작성해주세요";
+        String defaultMission = "미션을 설정해주세요";
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        MemberDiary_day memberDiary_day = new MemberDiary_day(0,0,0,0,0,0,0);
+        MemberDiary memberDiary = new MemberDiary(defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary);
+        MemberMission memberMission = new MemberMission("1주차"+defaultMission,"2주차"+defaultMission,"3주차"+defaultMission,"4주차"+defaultMission,0);
+        Memberinfo memberinfo = new Memberinfo("0",0);
+        if (user != null ){
+            for (int i = 0 ; i< 4 ; i++){
+                db.collection("userDay"+(i+1)+"weeks").document(user.getUid()).set(memberDiary_day)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+                db.collection("userDiary"+(i+1)+"weeks").document(user.getUid()).set(memberDiary)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                            }
+                        });
+            }
+            db.collection("userMission").document(user.getUid()).set(memberMission)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                        }
+                    });
         }
     }
 

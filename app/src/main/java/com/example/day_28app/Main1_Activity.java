@@ -55,6 +55,7 @@ public class Main1_Activity extends AppCompatActivity {
 
         //파이어베이스
         mAuth = FirebaseAuth.getInstance();
+        setInit();
 
 
     }
@@ -62,7 +63,6 @@ public class Main1_Activity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        setInit();
     }
 
     //fragment 전환

@@ -29,7 +29,7 @@ public class Login_Activity extends AppCompatActivity {
         setContentView(R.layout.login);
         findViewById(R.id.login_login_btn).setOnClickListener(onClickListener);
         findViewById(R.id.login_forget_password_text).setOnClickListener(onClickListener);
-
+        findViewById(R.id.login_sign_btn).setOnClickListener(onClickListener);
         mAuth = FirebaseAuth.getInstance();
 
     }
@@ -44,6 +44,7 @@ public class Login_Activity extends AppCompatActivity {
                     break;
                 case R.id.login_sign_btn:
                     startActivity(Signup_Activity.class);
+                    break;
                 case R.id.login_forget_password_text:
                     startActivity(Password_Find_Activity.class);
                     break;
