@@ -11,9 +11,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,6 +51,7 @@ public class MainHomeFragment extends Fragment {
     private int[] bar_id = {R.id.progressbar1,R.id.progressbar2,R.id.progressbar3,R.id.progressbar4};
     private int[] btn_id = {R.id.main_1weeks_Btn,R.id.main_2weeks_Btn,R.id.main_3weeks_Btn,R.id.main_4weeks_Btn};
     private int[] lay_id = {R.id.main_1weeks_layout,R.id.main_2weeks_layout,R.id.main_3weeks_layout,R.id.main_4weeks_layout};
+    private int[] icon_id = {R.drawable.main1_icon_profile_0weeks,R.drawable.main1_icon_profile_1weeks,R.drawable.main1_icon_profile_2weeks,R.drawable.main1_icon_profile_3weeks,R.drawable.main1_icon_profile_4weeks};
 
 
 
@@ -58,6 +61,8 @@ public class MainHomeFragment extends Fragment {
     TextView[] progressTxt = new TextView[4];
     ProgressBar[] progressBars = new ProgressBar[4];
     RelativeLayout[] missionLayout = new RelativeLayout[4];
+
+    ImageView profileIcon;
 
 
 
@@ -101,7 +106,7 @@ public class MainHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_main_home, container, false);
 
-        rootView.findViewById(R.id.main_1weeks_Btn).setOnClickListener(onClickListener);
+        profileIcon = rootView.findViewById(R.id.main_home_profile_icon);
         for (int i = 0 ;i<4;i++){
             missionTxt[i]= (TextView) rootView.findViewById(txt_id[i]);
             missionLayout[i] = (RelativeLayout)rootView.findViewById(lay_id[i]);
@@ -158,7 +163,6 @@ public class MainHomeFragment extends Fragment {
             }
         });
     }
-
     private void updateBtnVisibility(){
         for (int i= 0 ;i<3;i++){
             DocumentReference docRef = db.collection("userDay"+(i+1)+"weeks").document(user.getUid());
@@ -177,7 +181,6 @@ public class MainHomeFragment extends Fragment {
                 }
             });
         }
-
         for (int i = 0; i< 4; i++){
             DocumentReference docRef = db.collection("userDay"+(i+1)+"weeks").document(user.getUid());
             int finalI = i;
@@ -197,9 +200,16 @@ public class MainHomeFragment extends Fragment {
                 }
             });
         }
-
-
+        DocumentReference docRef = db.collection("users").document(user.getUid());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    profileIcon.setImageResource(icon_id[Integer.parseInt(document.getData().get("checkMissionWeeks").toString())]);
+                }
+            }
+        });
     }
-
-
 }

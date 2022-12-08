@@ -8,7 +8,7 @@
         android:layout_gravity="center"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/sprout_1"
+        android:src="@drawable/sprout"
         android:id="@+id/img1">
     </ImageView>
     <TextView

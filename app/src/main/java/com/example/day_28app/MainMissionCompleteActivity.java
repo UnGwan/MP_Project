@@ -140,6 +140,23 @@ public class MainMissionCompleteActivity extends AppCompatActivity {
                         Log.w("무야호", "Error updating document", e);
                     }
                 });
+        if (checkingDay+1 == 7){
+            DocumentReference washingtonRef2 = db.collection("users").document(user.getUid());
+            washingtonRef2
+                    .update("checkMissionWeeks",weeks+1)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("무야호:", "DocumentSnapshot successfully updated!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("무야호", "Error updating document", e);
+                        }
+                    });
+        }
     }
 
     private void setInitial() {

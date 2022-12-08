@@ -102,7 +102,7 @@ public class SignupActivity extends AppCompatActivity {
         MemberDay memberDiary_day = new MemberDay(0,0,0,0,0,0,0,0);
         MemberDiary memberDiary = new MemberDiary(defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary);
         MemberMission memberMission = new MemberMission("1주차"+defaultMission,"2주차"+defaultMission,"3주차"+defaultMission,"4주차"+defaultMission,0);
-        MemberInfo memberinfo = new MemberInfo("0",0);
+        MemberInfo memberinfo = new MemberInfo("0",0,0);
         if (user != null ){
             for (int i = 0 ; i< 4 ; i++){
                 db.collection("userDay"+(i+1)+"weeks").document(user.getUid()).set(memberDiary_day)

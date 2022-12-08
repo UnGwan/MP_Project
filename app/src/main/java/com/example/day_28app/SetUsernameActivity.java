@@ -53,7 +53,7 @@ public class SetUsernameActivity extends AppCompatActivity {
         if (username.length() > 0) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            MemberInfo memberinfo = new MemberInfo(username,1);
+            MemberInfo memberinfo = new MemberInfo(username,1,0);
             if (user != null ){
                 db.collection("users").document(user.getUid()).set(memberinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
