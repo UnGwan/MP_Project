@@ -143,7 +143,7 @@ public class MainMissionCompleteActivity extends AppCompatActivity {
         if (checkingDay+1 == 7){
             DocumentReference washingtonRef2 = db.collection("users").document(user.getUid());
             washingtonRef2
-                    .update("checkMissionWeeks",weeks+1)
+                    .update("checkMissionWeeks",checkingDay+1)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -187,7 +187,7 @@ public class MainMissionCompleteActivity extends AppCompatActivity {
                         Log.d(TAG, completeCheck + "입니다");
                     } else {
                         diary_edt.setHint(document.getData().get("diary" + (checkingDay + 1)).toString());
-                        Log.e(TAG, completeCheck + "입니다2");
+                        Log.e(TAG, completeCheck + "입니다22222");
                     }
                     for (int i = 0; i < 7; i++) {
                         diary[i] = document.getData().get("diary" + (i + 1)).toString();
