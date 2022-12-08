@@ -1,10 +1,10 @@
 package com.example.day_28app;
 
-public class MemberDiary_day {
+public class MemberDay {
 
-    private int day1,day2,day3,day4,day5,day6,day7;
+    private int day1,day2,day3,day4,day5,day6,day7,daySum;
 
-    public MemberDiary_day(int day1,int day2,int day3,int day4,int day5,int day6,int day7){
+    public MemberDay(int day1, int day2, int day3, int day4, int day5, int day6, int day7,int daySum){
 
         this.day1 = day1;
         this.day2 = day2;
@@ -13,6 +13,7 @@ public class MemberDiary_day {
         this.day5 = day5;
         this.day6 = day6;
         this.day7 = day7;
+        this.daySum = daySum;
 
     }
 
@@ -37,6 +38,9 @@ public class MemberDiary_day {
     public int getDay7(){
         return this.day7;
     }
+    public int getDaySum(){
+        return this.daySum;
+    }
     public void setDiary1(int day1) {
         this.day1 = day1;
     }
@@ -57,6 +61,9 @@ public class MemberDiary_day {
     }
     public void setDiary7(int day7) {
         this.day1 = day7;
+    }
+    public void setDiaryDaySum(int daySum) {
+        this.daySum = daySum;
     }
 
 }

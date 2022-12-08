@@ -23,7 +23,7 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
-            android:name=".Main1_Activity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,24 +39,24 @@
         <!-- 로그인 회원가입 선택화면 -->
         <activity android:name=".login_Signup_Activity" />
         <!-- 회원가입 화면 -->
-        <activity android:name=".Signup_Activity" />
+        <activity android:name=".SignupActivity" />
         <!-- 로그인 화면-->
-        <activity android:name=".Login_Activity" />
+        <activity android:name=".LoginActivity" />
         <!-- 처음 소개 화면-->
-        <activity android:name=".Intro_Activity" />
+        <activity android:name=".IntroActivity" />
         <!-- 회원가입 성공시 화면-->
-        <activity android:name=".Success_Signup_Activity" />
+        <activity android:name=".WelcomeSignupActivity" />
         <!-- 비밀번호 재설정 화면-->
-        <activity android:name=".Password_Find_Activity" />
+        <activity android:name=".PasswordResetActivity" />
         <!-- 닉네임 설정 화면-->
-        <activity android:name=".Set_Username_Activity"/>
+        <activity android:name=".SetUsernameActivity"/>
         <!-- 카메라 액티비티-->
         <activity android:name=".CameraActivity" />
 
         <!-- 1주차 미션화면 -->
-        <activity android:name=".Main_mission_1weeks_Activity"/>
+        <activity android:name=".MainMissionActivity"/>
         <!-- 미션 인증 화면 -->
-        <activity android:name=".Complete_Mission_Page_Activity"/>
+        <activity android:name=".MainMissionCompleteActivity"/>
     </application>
 
 </manifest>

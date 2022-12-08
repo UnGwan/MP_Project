@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Intro_Activity extends AppCompatActivity {
+public class IntroActivity extends AppCompatActivity {
 
     Button startBtn;
     @Override
@@ -36,7 +36,7 @@ public class Intro_Activity extends AppCompatActivity {
         finish();
     }
     private void startMain1Activity(){
-        Intent intent = new Intent(this,Main1_Activity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

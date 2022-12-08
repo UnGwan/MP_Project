@@ -3,7 +3,6 @@ package com.example.day_28app;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,11 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class Password_Find_Activity extends AppCompatActivity {
+public class PasswordResetActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
@@ -66,7 +63,7 @@ public class Password_Find_Activity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
     private void startLoginActivity(){
-        Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

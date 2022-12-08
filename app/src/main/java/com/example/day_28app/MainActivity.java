@@ -23,13 +23,13 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Main1_Activity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MemberInitActivity";
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private Main_home fragmentHome = new Main_home();
-    private Main_feed fragmentFeed = new Main_feed();
-    private Main_mypage fragmentMyPage = new Main_mypage();
+    private MainHomeFragment fragmentHome = new MainHomeFragment();
+    private MainFeedFragment fragmentFeed = new MainFeedFragment();
+    private MainMyPageFragment fragmentMyPage = new MainMyPageFragment();
     private FirebaseAuth mAuth;
 
     //Main
@@ -108,7 +108,7 @@ public class Main1_Activity extends AppCompatActivity {
 
         //로그인 여부
         if (user == null) {
-            startActivity(Intro_Activity.class);
+            startActivity(IntroActivity.class);
             finish();
         } else {
 //            startActivity(CameraActivity.class);
@@ -127,7 +127,7 @@ public class Main1_Activity extends AppCompatActivity {
                             } else {
                                 finish();
                                 Log.d(TAG, "No such document");
-                                startActivity(Set_Username_Activity.class);
+                                startActivity(SetUsernameActivity.class);
                             }
                         }
                     } else {

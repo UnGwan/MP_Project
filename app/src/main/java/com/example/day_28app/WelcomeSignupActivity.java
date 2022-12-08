@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Success_Signup_Activity extends AppCompatActivity {
+public class WelcomeSignupActivity extends AppCompatActivity {
 
     ImageView img1;
     Button login_btn;
@@ -25,7 +25,7 @@ public class Success_Signup_Activity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,7 +1,6 @@
 package com.example.day_28app;
 
-import static com.example.day_28app.Main_home.missionCheckPoint;
-import static com.example.day_28app.Main_home.weeks;
+import static com.example.day_28app.MainHomeFragment.weeks;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,8 +15,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Mission_Set_Dialog_Fragment extends DialogFragment {
+public class MissionSetDialogFragment extends DialogFragment {
 
     private static final String TAG = "Mission_Set_Dialog_Fragment";
     public static final String TAG_EVENT_DIALOG = "dialog_event";
@@ -38,11 +35,11 @@ public class Mission_Set_Dialog_Fragment extends DialogFragment {
     Button okBtn;
     Button cancelBtn;
 
-    public Mission_Set_Dialog_Fragment() {
+    public MissionSetDialogFragment() {
     }
 
-    public static Mission_Set_Dialog_Fragment getInstance() {
-        Mission_Set_Dialog_Fragment m = new Mission_Set_Dialog_Fragment();
+    public static MissionSetDialogFragment getInstance() {
+        MissionSetDialogFragment m = new MissionSetDialogFragment();
         return m;
     }
 
@@ -86,7 +83,7 @@ public class Mission_Set_Dialog_Fragment extends DialogFragment {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Intent intent = new Intent(getActivity(), Main_mission_1weeks_Activity.class);
+                        Intent intent = new Intent(getActivity(), MainMissionActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         dismiss();

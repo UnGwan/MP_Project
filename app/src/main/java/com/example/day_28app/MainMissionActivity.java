@@ -1,17 +1,14 @@
 package com.example.day_28app;
 
-import static com.example.day_28app.Complete_Mission_Page_Activity.*;
-import static com.example.day_28app.Main_home.weeks;
+import static com.example.day_28app.MainHomeFragment.weeks;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,7 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Main_mission_1weeks_Activity extends AppCompatActivity {
+public class MainMissionActivity extends AppCompatActivity {
 
     private static final String TAG = "Main_mission_1weeks_Activity";
     public static int checkingDay;
@@ -78,7 +75,7 @@ public class Main_mission_1weeks_Activity extends AppCompatActivity {
             for (int i =0 ; i<7; i++){
                 if (view.getId() == lay_id[i]){
                     checkingDay = i;
-                    startActivity(Complete_Mission_Page_Activity.class);
+                    startActivity(MainMissionCompleteActivity.class);
                 }
             }
         }

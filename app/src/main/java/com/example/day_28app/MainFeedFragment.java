@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Main_feed#newInstance} factory method to
+ * Use the {@link MainFeedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Main_feed extends Fragment {
+public class MainFeedFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class Main_feed extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Main_feed() {
+    public MainFeedFragment() {
         // Required empty public constructor
     }
 
@@ -37,8 +37,8 @@ public class Main_feed extends Fragment {
      * @return A new instance of fragment main_feed.
      */
     // TODO: Rename and change types and number of parameters
-    public static Main_feed newInstance(String param1, String param2) {
-        Main_feed fragment = new Main_feed();
+    public static MainFeedFragment newInstance(String param1, String param2) {
+        MainFeedFragment fragment = new MainFeedFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

@@ -1,11 +1,11 @@
 package com.example.day_28app;
 
-public class Memberinfo {
+public class MemberInfo {
 
     private String name;
     private int userNameCheck;
 
-    public Memberinfo(String name , int userNameCheck){
+    public MemberInfo(String name , int userNameCheck){
         this.name =name;
         this.userNameCheck = userNameCheck;
     }

@@ -1,17 +1,17 @@
 package com.example.day_28app;
 
-import static com.example.day_28app.Main_home.weeks;
-import static com.example.day_28app.Main_mission_1weeks_Activity.checkingDay;
+import static com.example.day_28app.MainHomeFragment.weeks;
+import static com.example.day_28app.MainMissionActivity.checkingDay;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,7 +28,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Complete_Mission_Page_Activity extends AppCompatActivity {
+public class MainMissionCompleteActivity extends AppCompatActivity {
 
     private static final String TAG = "Complete_Mission_Page_Activity";
     private MemberDiary memberDiary;
@@ -42,7 +42,6 @@ public class Complete_Mission_Page_Activity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private static EditText diary_edt;
-    private static TextView diary_txt;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,15 +53,9 @@ public class Complete_Mission_Page_Activity extends AppCompatActivity {
         findViewById(R.id.mission_complete_btn).setOnClickListener(onClickListener);
 
         diary_edt = findViewById(R.id.mission_diary_edt);
-        diary_txt = findViewById(R.id.mission_diary_txt);
         setInitial();
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//    }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -100,15 +93,15 @@ public class Complete_Mission_Page_Activity extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 startToast("일기 등록이 완료되었습니다.");
                                 updateDay();
-                                startActivity(Main_mission_1weeks_Activity.class);
+                                startActivity(MainMissionActivity.class);
                                 if (checkingDay==6){
-                                    dialog = new Dialog(Complete_Mission_Page_Activity.this);       // Dialog 초기화
+                                    dialog = new Dialog(MainMissionCompleteActivity.this);       // Dialog 초기화
                                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
                                     dialog.setContentView(R.layout.mission_complete_dialog);
                                     dialog.show();
                                     finish();
                                 } else {
-                                    startActivity(Main_mission_1weeks_Activity.class);
+                                    startActivity(MainMissionActivity.class);
                                 }
                                 Log.d(TAG, "DocumentSnapshot successfully updated!");
                             }
@@ -134,7 +127,7 @@ public class Complete_Mission_Page_Activity extends AppCompatActivity {
     private void updateDay() {
         DocumentReference washingtonRef = db.collection("userDay" + (weeks + 1) + "weeks").document(user.getUid());
         washingtonRef
-                .update("day" + (checkingDay + 1), 1)
+                .update("day" + (checkingDay + 1), 1,"daySum",checkingDay+1)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -171,10 +164,9 @@ public class Complete_Mission_Page_Activity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (completeCheck == 1) {
-//                            diary_edt.setText(document.getData().get("diary"+(checkingDay+1)).toString());
-                        diary_txt.setText(document.getData().get("diary" + (checkingDay + 1)).toString());
-                        diary_edt.setVisibility(View.INVISIBLE);
-                        diary_txt.setVisibility(View.VISIBLE);
+                            diary_edt.setText(document.getData().get("diary"+(checkingDay+1)).toString());
+                            diary_edt.setEnabled(false);
+                            diary_edt.setTextColor(Color.parseColor("#FFC107"));
                         Log.d(TAG, completeCheck + "입니다");
                     } else {
                         diary_edt.setHint(document.getData().get("diary" + (checkingDay + 1)).toString());

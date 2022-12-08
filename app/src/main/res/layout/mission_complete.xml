@@ -58,9 +58,6 @@
             android:padding="30dp"
             android:layout_width="match_parent"
             android:layout_height="0dp">
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
                 <EditText
                     android:id="@+id/mission_diary_edt"
                     android:gravity="center"
@@ -71,18 +68,6 @@
                     android:layout_height="150dp">
 
                 </EditText>
-                <TextView
-                    android:textSize="20dp"
-                    android:visibility="invisible"
-                    android:id="@+id/mission_diary_txt"
-                    android:gravity="center"
-                    android:fontFamily="@font/suit_b"
-                    android:textColor="#050505"
-                    android:background="@drawable/edge1"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
-                </TextView>
-            </FrameLayout>
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:gravity="center"

@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Set_Username_Activity extends AppCompatActivity {
+public class SetUsernameActivity extends AppCompatActivity {
     private static final String TAG = "MemberInitActivity";
 
     @Override
@@ -53,7 +53,7 @@ public class Set_Username_Activity extends AppCompatActivity {
         if (username.length() > 0) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            Memberinfo memberinfo = new Memberinfo(username,1);
+            MemberInfo memberinfo = new MemberInfo(username,1);
             if (user != null ){
                 db.collection("users").document(user.getUid()).set(memberinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -61,7 +61,7 @@ public class Set_Username_Activity extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 startToast("새싹의 이름이 정해졌습니다");
                                 finish();
-                                startActivity(Main1_Activity.class);
+                                startActivity(MainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

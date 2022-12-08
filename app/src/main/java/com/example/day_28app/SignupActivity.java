@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Signup_Activity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -73,7 +73,7 @@ public class Signup_Activity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     setDB();
-                                    startActivity(Success_Signup_Activity.class);
+                                    startActivity(WelcomeSignupActivity.class);
                                     // 성공 로직
                                 } else {
                                     if (task.getException()!= null){
@@ -99,10 +99,10 @@ public class Signup_Activity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        MemberDiary_day memberDiary_day = new MemberDiary_day(0,0,0,0,0,0,0);
+        MemberDay memberDiary_day = new MemberDay(0,0,0,0,0,0,0,0);
         MemberDiary memberDiary = new MemberDiary(defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary);
         MemberMission memberMission = new MemberMission("1주차"+defaultMission,"2주차"+defaultMission,"3주차"+defaultMission,"4주차"+defaultMission,0);
-        Memberinfo memberinfo = new Memberinfo("0",0);
+        MemberInfo memberinfo = new MemberInfo("0",0);
         if (user != null ){
             for (int i = 0 ; i< 4 ; i++){
                 db.collection("userDay"+(i+1)+"weeks").document(user.getUid()).set(memberDiary_day)

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login_Activity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
@@ -43,10 +42,10 @@ public class Login_Activity extends AppCompatActivity {
                     login();
                     break;
                 case R.id.login_sign_btn:
-                    startActivity(Signup_Activity.class);
+                    startActivity(SignupActivity.class);
                     break;
                 case R.id.login_forget_password_text:
-                    startActivity(Password_Find_Activity.class);
+                    startActivity(PasswordResetActivity.class);
                     break;
             }
         }
@@ -64,7 +63,7 @@ public class Login_Activity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                startActivity(Main1_Activity.class);
+                                startActivity(MainActivity.class);
                             } else {
                                 if (task.getException() != null) {
                                     startToast(task.getException().toString());

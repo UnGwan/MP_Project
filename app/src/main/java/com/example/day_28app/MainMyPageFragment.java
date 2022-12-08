@@ -13,10 +13,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Main_mypage#newInstance} factory method to
+ * Use the {@link MainMyPageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Main_mypage extends Fragment {
+public class MainMyPageFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +27,7 @@ public class Main_mypage extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Main_mypage() {
+    public MainMyPageFragment() {
         // Required empty public constructor
     }
 
@@ -40,8 +40,8 @@ public class Main_mypage extends Fragment {
      * @return A new instance of fragment main_mypage.
      */
     // TODO: Rename and change types and number of parameters
-    public static Main_mypage newInstance(String param1, String param2) {
-        Main_mypage fragment = new Main_mypage();
+    public static MainMyPageFragment newInstance(String param1, String param2) {
+        MainMyPageFragment fragment = new MainMyPageFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -76,7 +76,7 @@ public class Main_mypage extends Fragment {
             switch (v.getId()){
                 case R.id.main_myPage_logout_btn:
                     FirebaseAuth.getInstance().signOut();
-                    Intent intent = new Intent(v.getContext(), Login_Activity.class);
+                    Intent intent = new Intent(v.getContext(), LoginActivity.class);
                     startActivity(intent);
                     getActivity().finish();
                     break;
