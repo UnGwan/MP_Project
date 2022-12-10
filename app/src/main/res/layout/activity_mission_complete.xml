@@ -15,9 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <ImageView
-            android:id="@+id/img1"
-            android:layout_width="750px"
-            android:layout_height="700px"
+            android:id="@+id/mc_photoShot_img"
+            android:layout_width="800px"
+            android:layout_height="800px"
             android:layout_gravity="center"
             android:src="@drawable/photo_shot_basic">
 
@@ -74,17 +74,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatButton
+                    android:layout_weight="1"
                     android:id="@+id/mission_complete_btn"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/suit_b"
                     android:text="완료하기"
-                    android:layout_marginRight="30dp"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button2">
 
                 </androidx.appcompat.widget.AppCompatButton>
                 <androidx.appcompat.widget.AppCompatButton
+                    android:layout_weight="1"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/suit_b"
                     android:text="공유하기"

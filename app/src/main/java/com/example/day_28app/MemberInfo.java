@@ -3,11 +3,11 @@ package com.example.day_28app;
 public class MemberInfo {
 
     private String name;
-    private int userNameCheck,checkMissionWeeks;
+    //checkMissionWeeks : 처음 메인 프레그먼트에서 미션마다 프로그레스바 활성도 표시를 위한 변수
+    private int checkMissionWeeks;
 
     public MemberInfo(String name , int userNameCheck,int checkMissionWeeks){
         this.name =name;
-        this.userNameCheck = userNameCheck;
         this.checkMissionWeeks = checkMissionWeeks;
     }
 
@@ -18,14 +18,6 @@ public class MemberInfo {
 
     public void setName(String name){
         this.name = name;
-    }
-
-    public int getUserNameCheck(){
-        return this.userNameCheck;
-    }
-
-    public void setUserNameCheck(int userNameCheck){
-        this.userNameCheck = userNameCheck;
     }
 
     public int getCheckMissionWeeks(){

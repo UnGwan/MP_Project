@@ -13,39 +13,52 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
     android:layout_height="match_parent">
-<com.example.day_28app.AutoFitTextureView
+<com.example.day_28app.view.AutoFitTextureView
+        android:layout_gravity="center"
         android:id="@+id/texture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_marginTop="30dp"
+        />
 
     <LinearLayout
         android:id="@+id/control"
         android:layout_width="match_parent"
-        android:layout_height="112dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center_horizontal|center_vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/picture"
+            android:background="@drawable/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Picture" />
 
-        <Button
+            android:fontFamily="@font/suit_b"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:text="촬영" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/change_Btn"
+            android:background="@drawable/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Change" />
+
+            android:fontFamily="@font/suit_b"
+            android:textColor="#FB6502"
+            android:textSize="15dp"
+            android:text="변환" />
 
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

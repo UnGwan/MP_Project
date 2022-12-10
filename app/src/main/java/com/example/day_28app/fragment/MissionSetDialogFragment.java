@@ -1,6 +1,6 @@
-package com.example.day_28app;
+package com.example.day_28app.fragment;
 
-import static com.example.day_28app.MainHomeFragment.weeks;
+import static com.example.day_28app.fragment.MainHomeFragment.weeks;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.day_28app.R;
+import com.example.day_28app.activity.MainMissionActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,7 +50,7 @@ public class MissionSetDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.mission_set_dialog, container);
+        View v = inflater.inflate(R.layout.dialog_mission_set, container);
 
         missionEdt = (EditText) v.findViewById(R.id.mission_set_edt);
         okBtn = (Button) v.findViewById(R.id.mission_set_ok_btn);
@@ -77,9 +79,9 @@ public class MissionSetDialogFragment extends DialogFragment {
 
     private void okAction() {
         String mission = missionEdt.getText().toString();
-        DocumentReference washingtonRef = db.collection("userMission").document(user.getUid());
+        DocumentReference washingtonRef = db.collection("users").document(user.getUid());
         washingtonRef
-                .update("mission"+(weeks+1), mission,"checkPoint",weeks+1)
+                .update("mission"+(weeks+1), mission,"checkSetMission",weeks+1)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

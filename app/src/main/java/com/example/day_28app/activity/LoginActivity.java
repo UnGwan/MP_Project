@@ -1,4 +1,4 @@
-package com.example.day_28app;
+package com.example.day_28app.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.day_28app.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
         findViewById(R.id.login_login_btn).setOnClickListener(onClickListener);
         findViewById(R.id.login_forget_password_text).setOnClickListener(onClickListener);
         findViewById(R.id.login_sign_btn).setOnClickListener(onClickListener);

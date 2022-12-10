@@ -1,4 +1,4 @@
-package com.example.day_28app;
+package com.example.day_28app.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.day_28app.fragment.MainFeedFragment;
+import com.example.day_28app.fragment.MainHomeFragment;
+import com.example.day_28app.fragment.MainMyPageFragment;
+import com.example.day_28app.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_menu);
+        setContentView(R.layout.menu_main);
+
 
 
         //하단 네비게이션바 구현
@@ -60,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
 
     //fragment 전환
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -120,9 +121,10 @@ public class MainActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         if (document != null) {
                             if (document.exists()) {
-                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData().get("name"));
                                 username = document.getData().get("name").toString();
                                 top_txt = (TextView) findViewById(R.id.main_top_text);
+                                //에러 1
                                 top_txt.setText(username + "님 \n오늘도 반가워요 ");
                             } else {
                                 finish();

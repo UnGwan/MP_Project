@@ -1,4 +1,4 @@
-package com.example.day_28app;
+package com.example.day_28app.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.day_28app.R;
+
 public class login_Signup_Activity extends AppCompatActivity {
 
     Button logBtn,signBtn;
@@ -17,7 +19,7 @@ public class login_Signup_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_signup);
+        setContentView(R.layout.activity_slected_login_signup);
 
         signBtn = findViewById(R.id.SignScreenOpenBtn);
         logBtn = findViewById(R.id.loginScreenOpenBtn);

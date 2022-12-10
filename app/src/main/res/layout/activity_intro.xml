@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F5F3F1"
-    tools:context=".IntroActivity">
+    tools:context=".activity.IntroActivity">
 
     <RelativeLayout
         android:gravity="center"

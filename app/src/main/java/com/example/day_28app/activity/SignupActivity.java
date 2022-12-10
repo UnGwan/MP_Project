@@ -1,4 +1,4 @@
-package com.example.day_28app;
+package com.example.day_28app.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.day_28app.MemberDiary;
+import com.example.day_28app.MemberMission;
+import com.example.day_28app.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -20,13 +23,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignupActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup);
+        setContentView(R.layout.activitysignup);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.signUp_sign_btn).setOnClickListener(onClickListener);
@@ -97,25 +103,17 @@ public class SignupActivity extends AppCompatActivity {
         String defaultDiary = "오늘의 일기를 작성해주세요";
         String defaultMission = "미션을 설정해주세요";
 
+        Map<String, Object> defaultData = new HashMap<>();
+        defaultData.put("diary", "오늘의 일기를 작성해주세요");
+        defaultData.put("dayCheck", 0);
+        defaultData.put("photoShotUrl","0");
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        MemberDay memberDiary_day = new MemberDay(0,0,0,0,0,0,0,0);
-        MemberDiary memberDiary = new MemberDiary(defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary,defaultDiary);
+        MemberDiary memberDiary = new MemberDiary(defaultData,defaultData,defaultData,defaultData,defaultData,defaultData,defaultData,0);
         MemberMission memberMission = new MemberMission("1주차"+defaultMission,"2주차"+defaultMission,"3주차"+defaultMission,"4주차"+defaultMission,0);
-        MemberInfo memberinfo = new MemberInfo("0",0,0);
         if (user != null ){
             for (int i = 0 ; i< 4 ; i++){
-                db.collection("userDay"+(i+1)+"weeks").document(user.getUid()).set(memberDiary_day)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                            }
-                        });
                 db.collection("userDiary"+(i+1)+"weeks").document(user.getUid()).set(memberDiary)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -128,18 +126,7 @@ public class SignupActivity extends AppCompatActivity {
                             }
                         });
             }
-            db.collection("userMission").document(user.getUid()).set(memberMission)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                        }
-                    });
-        }
+            }
     }
 
     private void startToast(String msg) {

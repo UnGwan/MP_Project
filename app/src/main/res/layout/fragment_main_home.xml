@@ -3,24 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainHomeFragment"
+    tools:context=".fragment.MainHomeFragment"
     android:orientation="vertical">
 
-    <ImageButton
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="18dp"
-        android:background="#FFFFFF"
-        android:scaleType="centerCrop"
-        android:src="@drawable/main1_icon_setting"
-        android:layout_gravity="right"
-        android:layout_width="80px"
-        android:layout_height="80px">
+<!--    <ImageButton-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:background="#FFFFFF"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/main1_icon_setting"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:layout_width="80px"-->
+<!--        android:layout_height="80px">-->
 
 
-    </ImageButton>
+<!--    </ImageButton>-->
     <FrameLayout
+        android:layout_marginTop="25dp"
         android:layout_width="1080px"
-        android:layout_height="250px">
+        android:layout_height="300px">
         <ImageView
             android:src="@drawable/main1_bg_top"
             android:layout_width="match_parent"
@@ -29,7 +30,7 @@
         </ImageView>
         <TextView
             android:id="@+id/main_top_text"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:textColor="#000000"
             android:fontFamily="@font/suit_b"
             android:textSize="20dp"
@@ -45,8 +46,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
             android:layout_gravity="right"
-            android:layout_width="200px"
-            android:layout_height="200px">
+            android:layout_width="240px"
+            android:layout_height="240px">
 
         </ImageView>
     </FrameLayout>
@@ -62,21 +63,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <RelativeLayout
+
             android:id="@+id/main_1weeks_layout"
-            android:padding="10dp"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <ImageButton
-                android:layout_centerInParent="true"
-                android:layout_width="900px"
-                android:layout_height="300px"
                 android:id="@+id/main_1weeks_Btn"
-                android:background="@drawable/main_button"
-                >
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_centerInParent="true"
+                android:background="@drawable/main_button">
+
             </ImageButton>
             <TextView
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:id="@+id/mission1_txt"
 
@@ -84,10 +87,13 @@
                 android:layout_alignLeft="@id/main_1weeks_Btn"
                 android:layout_alignRight="@id/main_1weeks_Btn"
                 android:layout_alignTop="@id/main_1weeks_Btn"
+
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="70dp"
                 android:layout_marginTop="30dp"
+
+                android:text="밥먹기"
 
                 android:textSize="20dp"
 
@@ -95,19 +101,18 @@
             </TextView>
 
             <TextView
+                android:id="@+id/main_home_motivation_txt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:layout_alignBottom="@id/mission1_txt"
+                android:layout_alignBottom="@+id/mission1_txt"
                 android:layout_alignLeft="@id/mission1_txt"
                 android:layout_alignRight="@+id/mission1_txt"
 
                 android:layout_marginBottom="18dp"
-                android:layout_marginTop="30dp"
 
-
+                android:text="1주차 미션을 완료해주세요"
                 android:textSize="10dp"
-                android:hint="어떤 명언을 할까요"
                 >
             </TextView>
 
@@ -119,7 +124,7 @@
 
                 android:layout_alignLeft="@id/main_1weeks_Btn"
 
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="38dp"
                 android:layout_marginLeft="15dp"
                 android:layout_gravity="center"
 
@@ -144,19 +149,29 @@
                 android:fontFamily="@font/suit_b"
                 android:textSize="15dp"
                 />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+
+                android:layout_alignRight="@+id/main_1weeks_Btn"
+                android:layout_centerVertical="true"
+
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24">
+
+            </ImageView>
         </RelativeLayout>
             <!-- 2주차 -->
             <RelativeLayout
                 android:visibility="invisible"
                 android:id="@+id/main_2weeks_layout"
-                android:padding="10dp"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/main_2weeks_Btn"
-                    android:layout_width="900px"
+                    android:layout_width="match_parent"
                     android:layout_height="300px"
                     android:layout_centerInParent="true"
                     android:background="@drawable/main_button"></ImageButton>
@@ -179,6 +194,7 @@
                 </TextView>
 
                 <TextView
+                    android:id="@+id/main_home_motivation_txt2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -190,7 +206,6 @@
 
 
                     android:textSize="10dp"
-                    android:text="어떤 명언을 할까요"
                     >
                 </TextView>
 
@@ -235,13 +250,13 @@
             <RelativeLayout
                 android:visibility="invisible"
                 android:id="@+id/main_3weeks_layout"
-                android:padding="10dp"
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <ImageButton
                     android:layout_centerInParent="true"
-                    android:layout_width="900px"
+                    android:layout_width="match_parent"
                     android:layout_height="300px"
                     android:id="@+id/main_3weeks_Btn"
                     android:background="@drawable/main_button"
@@ -268,6 +283,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/main_home_motivation_txt3"
 
                     android:layout_alignBottom="@id/mission3_txt"
                     android:layout_alignLeft="@id/mission3_txt"
@@ -277,7 +293,6 @@
 
 
                     android:textSize="10dp"
-                    android:text="어떤 명언을 할까요"
                     >
                 </TextView>
 
@@ -319,69 +334,63 @@
 
             <!-- 4주차 -->
             <RelativeLayout
-                android:visibility="invisible"
                 android:id="@+id/main_4weeks_layout"
-                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-                <ImageButton
-                    android:layout_centerInParent="true"
-                    android:layout_width="900px"
-                    android:layout_height="300px"
-                    android:id="@+id/main_4weeks_Btn"
-                    android:background="@drawable/main_button"
-                    >
-                </ImageButton>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:id="@+id/mission4_txt"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:visibility="invisible">
 
-                    android:layout_alignBottom="@id/main_4weeks_Btn"
+                <ImageButton
+                    android:id="@+id/main_4weeks_Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="300px"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/main_button"></ImageButton>
+
+                <TextView
+                    android:id="@+id/mission4_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
                     android:layout_alignLeft="@id/main_4weeks_Btn"
-                    android:layout_alignRight="@id/main_4weeks_Btn"
                     android:layout_alignTop="@id/main_4weeks_Btn"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_alignRight="@id/main_4weeks_Btn"
+                    android:layout_alignBottom="@id/main_4weeks_Btn"
                     android:layout_marginLeft="70dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="20dp"
 
-                    android:textSize="20dp"
-                    >
-                </TextView>
+                    android:textSize="20dp"></TextView>
 
                 <TextView
+                    android:id="@+id/main_home_motivation_txt4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_alignBottom="@id/mission4_txt"
                     android:layout_alignLeft="@id/mission4_txt"
                     android:layout_alignRight="@+id/mission4_txt"
+                    android:layout_alignBottom="@id/mission4_txt"
 
                     android:layout_marginBottom="18dp"
 
 
-                    android:textSize="10dp"
-                    android:text="어떤 명언을 할까요"
-                    >
-                </TextView>
+                    android:textSize="10dp"></TextView>
 
                 <ProgressBar
                     android:id="@+id/progressbar4"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-
-
-                    android:layout_alignLeft="@id/main_4weeks_Btn"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_gravity="center"
-
-
-
-
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="40dp"
+
+
+                    android:layout_height="40dp"
+                    android:layout_alignLeft="@id/main_4weeks_Btn"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+
+
+                    android:layout_marginTop="35dp"
                     android:indeterminate="false"
                     android:max="70"
                     android:progressBackgroundTint="#FBE7C6"
@@ -393,15 +402,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_alignBottom="@id/progressbar4"
                     android:layout_alignLeft="@id/progressbar4"
-                    android:layout_alignRight="@id/progressbar4"
                     android:layout_alignTop="@id/progressbar4"
-                    android:gravity="center"
-
+                    android:layout_alignRight="@id/progressbar4"
+                    android:layout_alignBottom="@id/progressbar4"
                     android:fontFamily="@font/suit_b"
-                    android:textSize="15dp"
-                    />
+
+                    android:gravity="center"
+                    android:textSize="15dp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

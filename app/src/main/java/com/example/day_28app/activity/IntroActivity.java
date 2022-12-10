@@ -1,4 +1,4 @@
-package com.example.day_28app;
+package com.example.day_28app.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.day_28app.R;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class IntroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.intro_screen);
+        setContentView(R.layout.activity_intro);
         startBtn = findViewById(R.id.startBtn);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
@@ -25,9 +25,9 @@ public class IntroActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        if (FirebaseAuth.getInstance().getCurrentUser() != null){
-            startMain1Activity();
-        }
+//        if (FirebaseAuth.getInstance().getCurrentUser() != null){
+//            startMain1Activity();
+//        }
 
     }
     @Override

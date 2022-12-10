@@ -7,6 +7,8 @@
 
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
+    
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
 
     <application
@@ -23,7 +25,7 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,26 +39,28 @@
         </activity>
 
         <!-- 로그인 회원가입 선택화면 -->
-        <activity android:name=".login_Signup_Activity" />
+        <activity android:name=".activity.login_Signup_Activity" />
         <!-- 회원가입 화면 -->
-        <activity android:name=".SignupActivity" />
+        <activity android:name=".activity.SignupActivity" />
         <!-- 로그인 화면-->
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".activity.LoginActivity" />
         <!-- 처음 소개 화면-->
-        <activity android:name=".IntroActivity" />
+        <activity android:name=".activity.IntroActivity" />
         <!-- 회원가입 성공시 화면-->
-        <activity android:name=".WelcomeSignupActivity" />
+        <activity android:name=".activity.WelcomeSignupActivity" />
         <!-- 비밀번호 재설정 화면-->
-        <activity android:name=".PasswordResetActivity" />
+        <activity android:name=".activity.PasswordResetActivity" />
         <!-- 닉네임 설정 화면-->
-        <activity android:name=".SetUsernameActivity"/>
+        <activity android:name=".activity.SetUsernameActivity"/>
         <!-- 카메라 액티비티-->
-        <activity android:name=".CameraActivity" />
+        <activity android:name=".activity.CameraActivity" />
 
-        <!-- 1주차 미션화면 -->
-        <activity android:name=".MainMissionActivity"/>
+        <!-- 미션화면 -->
+        <activity android:name=".activity.MainMissionActivity"/>
         <!-- 미션 인증 화면 -->
-        <activity android:name=".MainMissionCompleteActivity"/>
+        <activity android:name=".activity.MainMissionCompleteActivity"/>
+        <!-- 갤러리 화면 -->
+        <activity android:name=".activity.GalleryActivity"/>
     </application>
 
 </manifest>

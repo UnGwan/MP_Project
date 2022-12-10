@@ -1,68 +1,76 @@
 package com.example.day_28app;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MemberDiary {
 
+    private Map<String, Object>[] diaryDay = new HashMap[7];
 
-    private String day1_diary, day2_diary, day3_diary, day4_diary, day5_diary, day6_diary, day7_diary;
-
-    public MemberDiary(String diary1, String diary2, String diary3, String diary4, String diary5, String diary6, String diary7) {
-        this.day1_diary = diary1;
-        this.day2_diary = diary2;
-        this.day3_diary = diary3;
-        this.day4_diary = diary4;
-        this.day5_diary = diary5;
-        this.day6_diary = diary6;
-        this.day7_diary = diary7;
-    }
-
-    public String getDiary1() {
-        return this.day1_diary;
-    }
-
-    public void setDiary1(String diary1) {
-        this.day1_diary = diary1;
-    }
-    public String getDiary2() {
-        return this.day2_diary;
+    // 그 주차에 미션을 며칠 수행했는지 알기 위한 변수
+    // 값:0~7
+    private int daySum;
+    public MemberDiary(Map<String, Object> diary1, Map<String, Object> diary2, Map<String, Object> diary3, Map<String, Object> diary4, Map<String, Object> diary5, Map<String, Object> diary6, Map<String, Object> diary7,int daySum) {
+        this.diaryDay[0] = diary1;
+        this.diaryDay[1] = diary2;
+        this.diaryDay[2] = diary3;
+        this.diaryDay[3] = diary4;
+        this.diaryDay[4] = diary5;
+        this.diaryDay[5] = diary6;
+        this.diaryDay[6] = diary7;
+        this.daySum = daySum;
     }
 
-    public void setDiary2(String diary2) {
-        this.day2_diary = diary2;
-    }
-    public String getDiary3() {
-        return this.day3_diary;
+    public Map<String, Object> getDiary1(){return this.diaryDay[0];}
+    public void setDiary1(Map<String, Object> diary1) {
+        this.diaryDay[0] = diary1;
     }
 
-    public void setDiary3(String diary3) {
-        this.day3_diary = diary3;
-    }
-    public String getDiary4() {
-        return this.day4_diary;
+    public Map<String, Object>  getDiary2() {return this.diaryDay[1];}
+    public void setDiary2(Map<String, Object>  diary2) {
+        this.diaryDay[1] = diary2;
     }
 
-    public void setDiary4(String diary4) {
-        this.day4_diary = diary4;
+    public Map<String, Object>  getDiary3() {
+        return this.diaryDay[2];
     }
-    public String getDiary5() {
-        return this.day5_diary;
-    }
-
-    public void setDiary5(String diary5) {
-        this.day5_diary = diary5;
-    }
-    public String getDiary6() {
-        return this.day6_diary;
+    public void setDiary3(Map<String, Object>  diary3) {
+        this.diaryDay[2] = diary3;
     }
 
-    public void setDiary6(String diary6) {
-        this.day6_diary = diary6;
+    public Map<String, Object>  getDiary4() {
+        return this.diaryDay[3];
     }
-    public String getDiary7() {
-        return this.day7_diary;
+    public void setDiary4(Map<String, Object>  diary4) {
+        this.diaryDay[3] = diary4;
     }
 
-    public void setDiary7(String diary7) {
-        this.day7_diary = diary7;
+    public Map<String, Object>  getDiary5() {
+        return this.diaryDay[4];
+    }
+    public void setDiary5(Map<String, Object>  diary5) {
+        this.diaryDay[4] = diary5;
+    }
+
+    public Map<String, Object>  getDiary6() {
+        return this.diaryDay[5];
+    }
+    public void setDiary6(Map<String, Object>  diary6) {
+        this.diaryDay[5] = diary6;
+    }
+
+    public Map<String, Object>  getDiary7() {
+        return this.diaryDay[6];
+    }
+    public void setDiary7(Map<String, Object>  diary7) {
+        this.diaryDay[6] = diary7;
+    }
+
+    public int getDaySum(){
+        return this.daySum;
+    }
+    public void setDiaryDaySum(int daySum) {
+        this.daySum = daySum;
     }
 }
 

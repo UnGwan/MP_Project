@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.day_28app;
+package com.example.day_28app.fragment;
 
 import android.Manifest;
 import android.app.Activity;
@@ -62,19 +62,21 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.example.day_28app.R;
+import com.example.day_28app.view.AutoFitTextureView;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -511,7 +513,7 @@ public class Camera2BasicFragment extends Fragment
      * @param height The height of available size for camera preview
      */
     @SuppressWarnings("SuspiciousNameCombination")
-    private void setUpCameraOutputs(int width, int height ,int facingId) {
+    private void setUpCameraOutputs(int width, int height) {
         Activity activity = getActivity();
         CameraManager manager = (CameraManager) activity.getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -636,7 +638,7 @@ public class Camera2BasicFragment extends Fragment
             requestCameraPermission();
             return;
         }
-        setUpCameraOutputs(width, height,facingId); //CameraCharacteristics.LENS_FACING_FRONT
+        setUpCameraOutputs(width, height); //CameraCharacteristics.LENS_FACING_FRONT
         configureTransform(width, height);
         Activity activity = getActivity();
         CameraManager manager = (CameraManager) activity.getSystemService(Context.CAMERA_SERVICE);
@@ -655,7 +657,7 @@ public class Camera2BasicFragment extends Fragment
     /**
      * Closes the current {@link CameraDevice}.
      */
-    private void closeCamera() {
+    public void closeCamera() {
         try {
             mCameraOpenCloseLock.acquire();
             if (null != mCaptureSession) {
@@ -965,7 +967,7 @@ public class Camera2BasicFragment extends Fragment
         }
 
         @Override
-        public void run() {
+        public void run()  {
             ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.remaining()];
             buffer.get(bytes);
@@ -977,33 +979,38 @@ public class Camera2BasicFragment extends Fragment
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             final StorageReference mountainImagesRef = storageRef.child("users/+"+user.getUid()+"/Photo-shot2.jpg");
 
-            UploadTask uploadTask = mountainImagesRef.putBytes(bytes);
+            try {
+                InputStream stream = new FileInputStream(new File("photoShot"));
+                UploadTask uploadTask = mountainImagesRef.putStream(stream);
+                uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            Log.e("실패","실패");
+                            throw task.getException();
+                        }
 
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        Log.e("실패","실패");
-                        throw task.getException();
+                        // Continue with the task to get the download URL
+                        return mountainImagesRef.getDownloadUrl();
                     }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+                            Uri downloadUri = task.getResult();
+                            Log.e("성공","성공: "+downloadUri);
 
-                    // Continue with the task to get the download URL
-                    return mountainImagesRef.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    if (task.isSuccessful()) {
-                        Uri downloadUri = task.getResult();
-                        Log.e("성공","성공: "+downloadUri);
-
-                    } else {
-                        Log.e("실패","실패");
-                        // Handle failures
-                        // ...
+                        } else {
+                            Log.e("실패","실패");
+                            // Handle failures
+                            // ...
+                        }
                     }
-                }
-            });
+                });
+            }
+            catch (FileNotFoundException e){
+                Log.e("로그","에러"+e.toString());
+            }
         }
 
     }

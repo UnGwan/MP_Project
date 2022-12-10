@@ -1,4 +1,4 @@
-package com.example.day_28app;
+package com.example.day_28app.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.day_28app.R;
+import com.example.day_28app.activity.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 /**

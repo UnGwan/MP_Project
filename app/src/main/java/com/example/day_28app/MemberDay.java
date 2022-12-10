@@ -41,6 +41,9 @@ public class MemberDay {
     public int getDaySum(){
         return this.daySum;
     }
+    public void setDiaryDaySum(int daySum) {
+        this.daySum = daySum;
+    }
     public void setDiary1(int day1) {
         this.day1 = day1;
     }
@@ -61,9 +64,6 @@ public class MemberDay {
     }
     public void setDiary7(int day7) {
         this.day1 = day7;
-    }
-    public void setDiaryDaySum(int daySum) {
-        this.daySum = daySum;
     }
 
 }

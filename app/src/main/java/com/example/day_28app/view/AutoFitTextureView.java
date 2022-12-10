@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.day_28app;
+package com.example.day_28app.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

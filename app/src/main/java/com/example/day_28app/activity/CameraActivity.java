@@ -14,16 +14,28 @@
  * limitations under the License.
  */
 
-package com.example.day_28app;
+package com.example.day_28app.activity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.day_28app.R;
+import com.example.day_28app.fragment.Camera2BasicFragment;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+
 
 public class CameraActivity extends AppCompatActivity {
+    private Camera2BasicFragment camera2BasicFragment;
 
     /**
      * This a callback object for the {@link ImageReader}. "onImageAvailable" will be called when a
@@ -36,6 +48,35 @@ public class CameraActivity extends AppCompatActivity {
         public void onImageAvailable(ImageReader reader) {
 //            mBackgroundHandler.post(new Camera2BasicFragment.ImageUploader(reader.acquireNextImage()));
             Log.e("로그","캡처");
+            Image mImage = reader.acquireNextImage();
+            File mFile = new File(getExternalFilesDir(null), "photoShot.jpg");
+
+            ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
+            byte[] bytes = new byte[buffer.remaining()];
+            buffer.get(bytes);
+            FileOutputStream output = null;
+            try {
+                output = new FileOutputStream(mFile);
+                output.write(bytes);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                mImage.close();
+                if (null != output) {
+                    try {
+                        output.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("photoShotPath",mFile.toString());
+            setResult(Activity.RESULT_OK,resultIntent);
+
+            camera2BasicFragment.closeCamera();
+            finish()  ;
         }
 
     };
@@ -44,7 +85,7 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         if (null == savedInstanceState) {
-            Camera2BasicFragment camera2BasicFragment =new Camera2BasicFragment();
+            camera2BasicFragment =new Camera2BasicFragment();
             camera2BasicFragment.setOnImageAvailableListener(mOnImageAvailableListener);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, camera2BasicFragment)

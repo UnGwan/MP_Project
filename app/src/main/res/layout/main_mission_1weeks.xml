@@ -29,7 +29,7 @@
 
 
     <LinearLayout
-
+        android:gravity="center"
         android:id="@+id/main_mission_1weeks_1day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,8 +41,9 @@
             android:id="@+id/mission_day1_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
-            android:src="@drawable/ncolor_orange"></ImageView>
+            android:src="@drawable/ncolor_orange">
+
+        </ImageView>
 
         <TextView
             android:id="@+id/mission_day1_txt"
@@ -56,6 +57,7 @@
 
     <!-- 2주차 -->
     <LinearLayout
+        android:gravity="center"
         android:id="@+id/main_mission_1weeks_2day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,7 +68,6 @@
             android:id="@+id/mission_day2_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
             android:src="@drawable/ncolor_orange">
 
         </ImageView>
@@ -85,6 +86,7 @@
 
     <!-- 3주차 -->
     <LinearLayout
+        android:gravity="center"
         android:id="@+id/main_mission_1weeks_3day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,7 +98,6 @@
             android:id="@+id/mission_day3_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
             android:src="@drawable/ncolor_orange">
 
         </ImageView>
@@ -116,6 +117,7 @@
 
     <!-- 4주차 -->
     <LinearLayout
+        android:gravity="center"
         android:id="@+id/main_mission_1weeks_4day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -123,7 +125,6 @@
         android:visibility="invisible">
 
         <ImageView
-             android:layout_marginLeft="75dp"
             android:id="@+id/mission_day4_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -145,6 +146,7 @@
 
     <!-- 5주차 -->
     <LinearLayout
+        android:gravity="center"
         android:id="@+id/main_mission_1weeks_5day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -152,7 +154,6 @@
         android:visibility="invisible">
 
         <ImageView
-            android:layout_marginLeft="75dp"
             android:id="@+id/mission_day5_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -174,6 +175,7 @@
 
     <!-- 6주차 -->
     <LinearLayout
+        android:gravity="center"
         android:id="@+id/main_mission_1weeks_6day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -184,7 +186,6 @@
             android:id="@+id/mission_day6_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
             android:src="@drawable/ncolor_orange">
 
         </ImageView>
@@ -203,6 +204,7 @@
 
     <!-- 7주차 -->
     <LinearLayout
+        android:gravity="center"
         android:id="@+id/main_mission_1weeks_7day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -213,7 +215,6 @@
             android:id="@+id/mission_day7_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="75dp"
             android:src="@drawable/ncolor_orange">
 
         </ImageView>

@@ -1,4 +1,4 @@
-package com.example.day_28app;
+package com.example.day_28app.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.day_28app.R;
+
 public class WelcomeSignupActivity extends AppCompatActivity {
 
     ImageView img1;
@@ -18,7 +20,7 @@ public class WelcomeSignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.success_signup);
+        setContentView(R.layout.activity_success_signup);
         img1 = (ImageView) findViewById(R.id.img1);
         login_btn = (Button) findViewById(R.id.success_signup_loginBtn);
 
