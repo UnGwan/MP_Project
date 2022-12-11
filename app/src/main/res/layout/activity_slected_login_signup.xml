@@ -17,14 +17,14 @@
 
         </ImageView>
         <TextView
+            android:id="@+id/motivation_txt"
             android:layout_marginTop="70dp"
             android:gravity="center"
             android:layout_marginBottom="20dp"
             android:textSize="16dp"
             android:fontFamily="@font/suit_b"
-            android:id="@+id/sayTxt"
             android:lineSpacingExtra="5dp"
-            android:text="다리를 움직이지 않고는 작은 도랑도 건널 수 없다  \n- 알랭 - "
+            android:autoSizeTextType="uniform"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
@@ -36,7 +36,7 @@
             android:textColor="#FFFFFF"
             android:text="로그인"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/button2"
+            android:background="@drawable/button_orange"
             android:id="@+id/loginScreenOpenBtn"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -50,7 +50,7 @@
             android:fontFamily="@font/suit_b"
             android:textColor="#FB6502"
             android:text="회원가입"
-            android:background="@drawable/button1"
+            android:background="@drawable/button_white"
             android:id="@+id/SignScreenOpenBtn"
             android:layout_gravity="center"
             android:layout_width="300dp"

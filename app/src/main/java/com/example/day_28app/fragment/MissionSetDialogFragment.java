@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,8 +32,7 @@ public class MissionSetDialogFragment extends DialogFragment {
     public static final String TAG_EVENT_DIALOG = "dialog_event";
 
 
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     EditText missionEdt;
     Button okBtn;
     Button cancelBtn;
@@ -78,26 +78,37 @@ public class MissionSetDialogFragment extends DialogFragment {
     };
 
     private void okAction() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         String mission = missionEdt.getText().toString();
-        DocumentReference washingtonRef = db.collection("users").document(user.getUid());
-        washingtonRef
-                .update("mission"+(weeks+1), mission,"checkSetMission",weeks+1)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Intent intent = new Intent(getActivity(), MainMissionActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        dismiss();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("무야호", "Error updating document", e);
-                    }
-                });
-
+        if (mission.length()>0){
+            if (user != null){
+                DocumentReference washingtonRef = db.collection("users").document(user.getUid());
+                washingtonRef
+                        .update("mission"+(weeks+1), mission,"checkSetMission",weeks+1)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Intent intent = new Intent(getActivity(), MainMissionActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                dismiss();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("무야호", "Error updating document", e);
+                            }
+                        });
+            } else {
+                Log.e("왜","갑자기안되는데");
+            }
+        } else {
+            Toast.makeText(getActivity(), "미션을 설정해주세요", Toast.LENGTH_SHORT).show();
+        }
 
     }
+
+
 }

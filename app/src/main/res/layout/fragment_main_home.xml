@@ -63,7 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <RelativeLayout
-
             android:id="@+id/main_1weeks_layout"
             android:padding="20dp"
             android:layout_width="match_parent"
@@ -75,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="300px"
                 android:layout_centerInParent="true"
-                android:background="@drawable/main_button">
+                android:background="@drawable/custom_ripple_effect">
 
             </ImageButton>
             <TextView
@@ -92,8 +91,6 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="70dp"
                 android:layout_marginTop="30dp"
-
-                android:text="밥먹기"
 
                 android:textSize="20dp"
 
@@ -174,7 +171,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="300px"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/main_button"></ImageButton>
+                    android:background="@drawable/custom_ripple_effect"
+                    >
+
+                </ImageButton>
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -204,6 +204,7 @@
 
                     android:layout_marginBottom="18dp"
 
+                    android:text="2주차 미션을 완료해주세요"
 
                     android:textSize="10dp"
                     >
@@ -244,6 +245,16 @@
                     android:fontFamily="@font/suit_b"
                     android:textSize="15dp"
                      />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:layout_alignRight="@+id/main_2weeks_Btn"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24">
+
+                </ImageView>
             </RelativeLayout>
 
             <!-- 3주차 -->
@@ -254,14 +265,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <ImageButton
-                    android:layout_centerInParent="true"
+                    android:id="@+id/main_3weeks_Btn"
                     android:layout_width="match_parent"
                     android:layout_height="300px"
-                    android:id="@+id/main_3weeks_Btn"
-                    android:background="@drawable/main_button"
-                    >
-                </ImageButton>
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/custom_ripple_effect"></ImageButton>
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -291,7 +301,7 @@
 
                     android:layout_marginBottom="18dp"
 
-
+                    android:text="3주차 미션을 완료해주세요"
                     android:textSize="10dp"
                     >
                 </TextView>
@@ -330,6 +340,16 @@
                     android:fontFamily="@font/suit_b"
                     android:textSize="15dp"
                      />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:layout_alignRight="@+id/main_3weeks_Btn"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24">
+
+                </ImageView>
             </RelativeLayout>
 
             <!-- 4주차 -->
@@ -346,7 +366,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="300px"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/main_button"></ImageButton>
+                    android:background="@drawable/custom_ripple_effect">
+
+                </ImageButton>
 
                 <TextView
                     android:id="@+id/mission4_txt"
@@ -362,7 +384,9 @@
                     android:layout_marginRight="40dp"
                     android:layout_marginBottom="20dp"
 
-                    android:textSize="20dp"></TextView>
+                    android:textSize="20dp">
+
+                </TextView>
 
                 <TextView
                     android:id="@+id/main_home_motivation_txt4"
@@ -376,7 +400,10 @@
                     android:layout_marginBottom="18dp"
 
 
-                    android:textSize="10dp"></TextView>
+                    android:text="4주차 미션을 완료해주세요"
+                    android:textSize="10dp">
+
+                </TextView>
 
                 <ProgressBar
                     android:id="@+id/progressbar4"
@@ -410,6 +437,16 @@
 
                     android:gravity="center"
                     android:textSize="15dp" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:layout_alignRight="@+id/main_4weeks_Btn"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24">
+
+                </ImageView>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

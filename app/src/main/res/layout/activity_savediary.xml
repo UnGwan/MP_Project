@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/save_username_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/suit_b"
+        android:textColor="#FF5722"
+        android:text="일기 저장소"
+        android:textSize="30dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/main_mission_mission_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/suit_b"
+        >
+    </TextView>
+
+    <TableLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:gravity="center"
+            android:padding="20dp"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save1"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save2"
+                android:text="2"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save3"
+                android:text="3"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="4"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="5"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="6"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="7"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:gravity="center"
+            android:padding="20dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="8"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="9"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="10"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="11"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save12"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="12"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save13"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="13"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save14"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="14"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+        </TableRow>
+
+
+        <TableRow
+            android:gravity="center"
+            android:padding="20dp"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save15"
+                android:text="15"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save16"
+                android:text="16"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save17"
+                android:text="17"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save18"
+                android:text="18"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save19"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="19"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save20"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="20"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save21"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="21"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:gravity="center"
+            android:padding="20dp"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save22"
+                android:text="22"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save23"
+                android:text="23"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save24"
+                android:text="24"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save25"
+                android:text="25"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/suit_b"
+                android:background="@drawable/button_orange"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save26"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="26"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save27"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/suit_b"
+                android:text="27"
+                android:textColor="#FFFFFF">
+
+            </androidx.appcompat.widget.AppCompatButton><androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save28"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_orange"
+            android:fontFamily="@font/suit_b"
+            android:text="28"
+            android:textColor="#FFFFFF">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</LinearLayout>

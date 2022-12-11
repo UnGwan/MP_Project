@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="300dp"
+    android:gravity="center"
+    android:padding="15dp"
+    >
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:src="@drawable/main1_icon_profile_3weeks"
+            >
+        </ImageView>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_arrow_right_alt_24"
+            >
+
+        </ImageView>
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:src="@drawable/main1_icon_profile_4weeks"
+            >
+
+        </ImageView>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:gravity="center"
+
+        android:fontFamily="@font/suit_b"
+        android:textSize="20dp"
+        android:text="28일동안의 미션을 클리어 했습니다">
+        
+    </TextView>
+    
+    <EditText
+        android:id="@+id/flowerpot_name_set_edt"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+
+
+
+        android:gravity="center"
+
+        android:hint="본인에게 하고 싶은 말과 함께 지난 일기를 저장하세요!"
+        android:textSize="14dp"
+        >
+
+    </EditText>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/flowerpot_set_ok_btn"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+
+
+            android:background="@drawable/button_orange"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+
+
+            android:text="확인"
+            android:textSize="15dp"
+            android:fontFamily="@font/suit_b"
+            android:textColor="#FFFFFF">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/flowerpot_set_cancel_btn"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+
+
+            android:background="@drawable/button_white"
+            android:layout_weight="1"
+
+
+            android:text="취소"
+            android:textSize="15dp"
+            android:fontFamily="@font/suit_b"
+            android:textColor="#FB6502">
+
+        </androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.day_28app.MemberInfo2;
+import com.example.day_28app.MemberInfo;
 import com.example.day_28app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,7 +56,7 @@ public class SetUsernameActivity extends AppCompatActivity {
         if (username.length() > 0) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            MemberInfo2 memberinfo = new MemberInfo2(username,"1주차"+defaultMission,"2주차"+defaultMission,"3주차"+defaultMission,"4주차"+defaultMission,0,0);
+            MemberInfo memberinfo = new MemberInfo(username,"1주차"+defaultMission,"2주차"+defaultMission,"3주차"+defaultMission,"4주차"+defaultMission,0,0,1);
             if (user != null ){
                 db.collection("users").document(user.getUid()).set(memberinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -74,24 +74,6 @@ public class SetUsernameActivity extends AppCompatActivity {
                                 Log.w(TAG, "Error writing document", e);
                             }
                         });
-//                DocumentReference washingtonRef = db.collection("users").document(user.getUid());
-//                washingtonRef
-//                        .update("name",username)
-//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                startToast("새싹의 이름이 정해졌습니다");
-//                                finish();
-//                                startActivity(MainActivity.class);
-//                            }
-//                        })
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                startToast("새싹의 이름 등록을 실패했습니다");
-//                                Log.w(TAG, "Error writing document", e);
-//                            }
-//                        });
             }
         } else {
             startToast("새싹의 이름을 정해주세요");

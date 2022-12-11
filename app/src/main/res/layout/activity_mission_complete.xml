@@ -23,35 +23,51 @@
 
         </ImageView>
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_weight="1"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="80dp">
 
-        <ImageButton
-            android:layout_marginRight="70dp"
-            android:textColor="#FFFFFF"
-            android:id="@+id/cm_take_photo_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_baseline_add_a_photo_24"
-            >
+            <ImageButton
+                android:layout_marginRight="70dp"
+                android:textColor="#FFFFFF"
+                android:id="@+id/cm_take_photo_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_photo"
+                >
 
-        </ImageButton>
+            </ImageButton>
 
-        <ImageButton
-            android:id="@+id/cm_get_photo_btn"
-            android:textColor="#FFFFFF"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_baseline_add_photo_alternate_24"
-            >
+            <ImageButton
+                android:id="@+id/cm_get_photo_btn"
+                android:textColor="#FFFFFF"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_galley"
+                >
 
-        </ImageButton>
+            </ImageButton>
+
         </LinearLayout>
+        <TextView
+            android:id="@+id/mission_motivation_txt"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:gravity="center"
+
+            android:textSize="16dp"
+            android:fontFamily="@font/suit_b"
+            android:lineSpacingExtra="5dp"
+            android:autoSizeTextType="uniform"
+            >
+        </TextView>
+    </FrameLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_weight="4"
@@ -68,34 +84,59 @@
                     android:layout_height="150dp">
 
                 </EditText>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:gravity="center"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_weight="1"
-                    android:id="@+id/mission_complete_btn"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="@font/suit_b"
-                    android:text="완료하기"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button2">
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_weight="1"
+                        android:id="@+id/mission_all_complete_btn"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/suit_b"
+                        android:text="등록하기"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_orange">
 
-                </androidx.appcompat.widget.AppCompatButton>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_weight="1"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="@font/suit_b"
-                    android:text="공유하기"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button2">
+                    </androidx.appcompat.widget.AppCompatButton>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/mission_diary_complete_btn"
+                        android:layout_weight="1"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/suit_b"
+                        android:text="일기만 등록하기"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_orange">
 
-                </androidx.appcompat.widget.AppCompatButton>
+                    </androidx.appcompat.widget.AppCompatButton>
 
-            </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:visibility="invisible"
+                        android:id="@+id/mission_back_btn"
+                        android:layout_weight="1"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="@font/suit_b"
+                        android:text="돌아가기"
+                        android:textSize="20dp"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_orange">
+
+                    </androidx.appcompat.widget.AppCompatButton>
+                </LinearLayout>
+            </FrameLayout>
+
 
         </LinearLayout>
 

@@ -54,19 +54,20 @@
         android:textStyle="bold">
 
     </TextView>
-    <androidx.appcompat.widget.AppCompatButton
-        android:fontFamily="@font/suit_b"
-        android:textColor="#FB6502"
-        android:text="번아웃 극복하기"
-        android:textStyle="bold"
-        android:textSize="23dp"
-        android:background="@drawable/button1"
-        android:layout_centerInParent="true"
-        android:id="@+id/startBtn"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/startTxt">
 
-    </androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/startBtn"
+            android:layout_width="280dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/startTxt"
+            android:layout_centerInParent="true"
+            android:background="@drawable/button_white"
+            android:fontFamily="@font/suit_b"
+            android:text="번아웃 극복하기"
+            android:textColor="#FB6502"
+            android:textSize="23dp"
+            android:textStyle="bold">
+
+        </androidx.appcompat.widget.AppCompatButton>
     </RelativeLayout>
 </LinearLayout>

@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     android:id="@+id/cardView"
     app:cardCornerRadius="10dp">
-    <LinearLayout
-        android:padding="5dp"
-        android:layout_width="match_parent"
+    <ImageView
+        android:adjustViewBounds="true"
+        android:id="@+id/galley_img"
+        android:layout_width="130dp"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/galley_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
-        </TextView>
-    </LinearLayout>
+    </ImageView>
 </androidx.cardview.widget.CardView>

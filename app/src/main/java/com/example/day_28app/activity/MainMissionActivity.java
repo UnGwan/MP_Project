@@ -1,6 +1,7 @@
 package com.example.day_28app.activity;
 
 import static com.example.day_28app.fragment.MainHomeFragment.weeks;
+import static com.example.day_28app.fragment.MissionSetDialogFragment.TAG_EVENT_DIALOG;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.day_28app.R;
+import com.example.day_28app.fragment.FlowerpotSetFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,7 +43,7 @@ public class MainMissionActivity extends AppCompatActivity {
     private int[] img_id = {R.id.mission_day1_img,R.id.mission_day2_img,R.id.mission_day3_img,R.id.mission_day4_img,R.id.mission_day5_img,R.id.mission_day6_img,R.id.mission_day7_img};
     private int[] txt_id ={R.id.mission_day1_txt,R.id.mission_day2_txt,R.id.mission_day3_txt,R.id.mission_day4_txt,R.id.mission_day5_txt,R.id.mission_day6_txt,R.id.mission_day7_txt};
     private int[] lay_id = {R.id.main_mission_1weeks_1day,R.id.main_mission_1weeks_2day,R.id.main_mission_1weeks_3day,R.id.main_mission_1weeks_4day,R.id.main_mission_1weeks_5day,R.id.main_mission_1weeks_6day,R.id.main_mission_1weeks_7day};
-    private Dialog dialog;
+    private Dialog dialog,dialog2;
 
     //다이얼로그 변수
     ImageView preImg,nextImge;
@@ -55,7 +57,7 @@ public class MainMissionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_mission_1weeks);
+        setContentView(R.layout.activity_mission);
 
         for (int i = 0; i<7;i++){
             img[i]=findViewById(img_id[i]);
@@ -74,11 +76,14 @@ public class MainMissionActivity extends AppCompatActivity {
         super.onStart();
         Intent secondIntent = getIntent();
         //일주일 미션 완료시 실행되는 다이얼로그
-        if (secondIntent.hasExtra("check")){
+        if (secondIntent.getIntExtra("check",0)==1){
         dialog = new Dialog(MainMissionActivity.this);       // Dialog 초기화
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         dialog.setContentView(R.layout.dialog_mission_complete);
         showDialog();
+        } else if (secondIntent.getIntExtra("check",0)==2){
+            FlowerpotSetFragment m = FlowerpotSetFragment.getInstance();
+            m.show(getSupportFragmentManager(),TAG_EVENT_DIALOG);
         }
     }
 
@@ -111,6 +116,7 @@ public class MainMissionActivity extends AppCompatActivity {
         }
     };
 
+    //일주일 완료시 바뀐 새싹 아이콘 보여주기 함수
     private void showDialog(){
 
         DocumentReference docRef = db.collection("users").document(user.getUid());
@@ -159,7 +165,7 @@ public class MainMissionActivity extends AppCompatActivity {
                         String day = "diary"+(i+1);
                         if (Integer.parseInt(((HashMap<String, Object>) document.getData().get(day)).get("dayCheck").toString())==1){
                             img[i].setImageResource(R.drawable.color_orange);
-                            txt[i].setText((weeks+1)+"주차"+" "+(i +1)+"일 미션완료!");
+                            txt[i].setText((weeks+1)+"주차"+" "+(i +1)+"일 일기 돌아보기!");
                             txt[i].setTextColor(Color.parseColor("#FFC107") );
                             if(i==6) {
                                 break;

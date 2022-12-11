@@ -1,5 +1,6 @@
 package com.example.day_28app.fragment;
 
+import static android.content.ContentValues.TAG;
 import static com.example.day_28app.fragment.MissionSetDialogFragment.TAG_EVENT_DIALOG;
 
 import android.annotation.SuppressLint;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +22,14 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.day_28app.MemberSaveDiary;
+import com.example.day_28app.activity.IntroActivity;
 import com.example.day_28app.activity.MainMissionActivity;
 import com.example.day_28app.R;
+import com.example.day_28app.activity.SetUsernameActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +38,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,6 +78,10 @@ public class MainHomeFragment extends Fragment {
     RelativeLayout[] missionLayout = new RelativeLayout[4];
 
     ImageView profileIcon;
+    TextView top_txt;
+    ViewGroup rootView;
+    public static String username;
+    private static int autoLoginPoint;
 
     private FirebaseAuth mAuth;
 
@@ -108,7 +120,7 @@ public class MainHomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_main_home, container, false);
+        rootView = (ViewGroup)inflater.inflate(R.layout.fragment_main_home, container, false);
 
 
         profileIcon = rootView.findViewById(R.id.main_home_profile_icon);
@@ -124,16 +136,16 @@ public class MainHomeFragment extends Fragment {
             rootView.findViewById(btn_id[i]).setOnClickListener(onClickListener);
         }
 
-        setInit();
-        updateBtnVisibility();
+        setAccept();
+//        setInit();
+//        updateBtnVisibility();
         return rootView;   // Inflate the layout for this fragment
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        setInit();
-        updateBtnVisibility();
+        setAccept();
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -143,6 +155,7 @@ public class MainHomeFragment extends Fragment {
                 if (view.getId() ==btn_id[i] ){
                         weeks = i;
                     if (weeks<missionCheckPoint){
+                        Log.d("확인2","값:"+missionCheckPoint);
                         Intent intent = new Intent(getActivity(), MainMissionActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
@@ -154,6 +167,11 @@ public class MainHomeFragment extends Fragment {
             }
         }
     };
+    private void startActivity(Class c){
+        Intent intent = new Intent(getActivity(), c);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
     private void setInit(){
         DocumentReference docRef = db.collection("users").document(user.getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -176,6 +194,70 @@ public class MainHomeFragment extends Fragment {
                 }
             }
         });
+    }
+    public void onTaskRemoved(Intent rootIntent) {
+
+        if (getActivity().isFinishing()){
+            Log.d("포인트","로그인포인트"+autoLoginPoint);
+            if (autoLoginPoint==0){
+                FirebaseAuth.getInstance().signOut();
+            }
+        }
+    }
+
+    private void setAccept() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        if (user == null) {
+            startActivity(IntroActivity.class);
+            getActivity().finish();
+
+        } else {
+//            FirebaseAuth.getInstance().signOut();
+            DocumentReference docRef = db.collection("users").document(user.getUid());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document != null) {
+                            if (document.exists()) {
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                                username = document.getData().get("name").toString();
+                                top_txt = (TextView) rootView.findViewById(R.id.main_top_text);
+                                //에러 1
+                                top_txt.setText(username + "님 \n오늘도 반가워요 ");
+                                DocumentReference docRef2 = db.collection("users").document(user.getUid());
+                                docRef2.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task.getResult();
+                                            autoLoginPoint = Integer.parseInt(document.getData().get("autoLogin").toString());
+                                            if (autoLoginPoint==0){
+                                                FirebaseAuth.getInstance().signOut();
+                                            }
+                                        } else {
+                                            Log.d(TAG, "get failed with ", task.getException());
+                                        }
+                                    }
+                                });
+                                setInit();
+                                updateBtnVisibility();
+                            } else {
+                                getActivity().finish();
+                                Log.d(TAG, "No such document");
+                                startActivity(SetUsernameActivity.class);
+                            }
+                        }
+                    } else {
+                        Log.d(TAG, "get failed with ", task.getException());
+                    }
+                }
+            });
+
+        }
     }
     private void updateBtnVisibility(){
 

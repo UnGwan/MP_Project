@@ -9,7 +9,7 @@
     <item
         android:id="@+id/menu_feed"
         android:icon="@drawable/ic_feed"
-        android:title="피드">
+        android:title="일기 저장소">
 
     </item>
     <item

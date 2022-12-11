@@ -44,7 +44,7 @@
         android:layout_gravity="center"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:background="@drawable/button2">
+        android:background="@drawable/button_orange">
 
     </androidx.appcompat.widget.AppCompatButton>
 
